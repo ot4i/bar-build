@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:restapiDescriptor xmlns="http://com.ibm.etools.mft.descriptor.base" xmlns:ns2="http://com.ibm.etools.mft.descriptor.restapi" definitionType="swagger_20" definitionFile="salesforce.json" implementation="gen/salesforce.msgflow" https="false">
+    <ns2:operations>
+        <ns2:operation name="account.findById" implementation="account_findById.subflow"/>
+        <ns2:operation name="account.patchAttributes" implementation="account_patchAttributes.subflow"/>
+        <ns2:operation name="account.create" implementation="account_create.subflow"/>
+        <ns2:operation name="account.find" implementation="account_find.subflow"/>
+        <ns2:operation name="account.upsertWithWhere" implementation="account_upsertWithWhere.subflow"/>
+        <ns2:operation name="account.del" implementation="account_del.subflow"/>
+        <ns2:operation name="lead.create" implementation="lead_create.subflow"/>
+        <ns2:operation name="lead.findById" implementation="lead_findById.subflow"/>
+    </ns2:operations>
+    <ns2:errorHandlers/>
+</ns2:restapiDescriptor>

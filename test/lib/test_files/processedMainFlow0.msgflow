@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmWSInput.msgnode="ComIbmWSInput.msgnode" xmlns:ComIbmRouteToLabel.msgnode="ComIbmRouteToLabel.msgnode" xmlns:ComIbmWSReply.msgnode="ComIbmWSReply.msgnode" xmlns:ComIbmLabel.msgnode="ComIbmLabel.msgnode" xmlns:account_findById.subflow="account_findById.subflow" xmlns:account_patchAttributes.subflow="account_patchAttributes.subflow" xmlns:account_create.subflow="account_create.subflow" xmlns:account_find.subflow="account_find.subflow" xmlns:account_upsertWithWhere.subflow="account_upsertWithWhere.subflow" xmlns:account_del.subflow="account_del.subflow" xmlns:lead_create.subflow="lead_create.subflow" xmlns:lead_findById.subflow="lead_findById.subflow" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow"
+xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="gen/salesforce.msgflow"
+nsPrefix="gen_salesforce.msgflow">
+<eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+<eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+<eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.connectorServiceUrl" name="connectorServiceUrl" >
+  <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+</eStructuralFeatures>
+<eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.connectorServiceInstanceId" name="connectorServiceInstanceId" >
+  <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+</eStructuralFeatures>
+<translation xmi:type="utility:TranslatableString" key="salesforce" bundleName="gen/salesforce" pluginId="flowAPIgenerated"/>
+<colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/flowAPIgenerated/icons/full/obj16/salesforce.gif"/>
+<colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/flowAPIgenerated/icons/full/obj30/salesforce.gif"/>
+<composition>
+<nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="25,150" URLSpecifier="/salesforce*" parseQueryString="true" messageDomainProperty="JSON" faultFormat="HTML">
+<translation xmi:type="utility:ConstantString" string="HTTP Input"/>
+</nodes>
+<nodes xmi:type="ComIbmRouteToLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="125,150">
+<translation xmi:type="utility:ConstantString" string="Route To Label"/>
+</nodes>
+<nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="525,150">
+<translation xmi:type="utility:ConstantString" string="HTTP Reply"/>
+</nodes>
+<nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_6" location="125,225" labelName="account.findById">
+<translation xmi:type="utility:ConstantString" string="account.findById (Label)"/>
+</nodes>
+<nodes xmi:type="account_findById.subflow:FCMComposite_1" xmi:id="FCMComposite_1_7" location="325,225">
+<translation xmi:type="utility:ConstantString" string="account.findById (Implementation)"/>
+</nodes>
+<nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_8" location="125,300" labelName="account.patchAttributes">
+<translation xmi:type="utility:ConstantString" string="account.patchAttributes (Label)"/>
+</nodes>
+<nodes xmi:type="account_patchAttributes.subflow:FCMComposite_1" xmi:id="FCMComposite_1_9" location="325,300">
+<translation xmi:type="utility:ConstantString" string="account.patchAttributes (Implementation)"/>
+</nodes>
+<nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_10" location="125,375" labelName="account.create">
+<translation xmi:type="utility:ConstantString" string="account.create (Label)"/>
+</nodes>
+<nodes xmi:type="account_create.subflow:FCMComposite_1" xmi:id="FCMComposite_1_11" location="325,375">
+<translation xmi:type="utility:ConstantString" string="account.create (Implementation)"/>
+</nodes>
+<nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_12" location="125,450" labelName="account.find">
+<translation xmi:type="utility:ConstantString" string="account.find (Label)"/>
+</nodes>
+<nodes xmi:type="account_find.subflow:FCMComposite_1" xmi:id="FCMComposite_1_13" location="325,450">
+<translation xmi:type="utility:ConstantString" string="account.find (Implementation)"/>
+</nodes>
+<nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_14" location="125,525" labelName="account.upsertWithWhere">
+<translation xmi:type="utility:ConstantString" string="account.upsertWithWhere (Label)"/>
+</nodes>
+<nodes xmi:type="account_upsertWithWhere.subflow:FCMComposite_1" xmi:id="FCMComposite_1_15" location="325,525">
+<translation xmi:type="utility:ConstantString" string="account.upsertWithWhere (Implementation)"/>
+</nodes>
+<nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_16" location="125,600" labelName="account.del">
+<translation xmi:type="utility:ConstantString" string="account.del (Label)"/>
+</nodes>
+<nodes xmi:type="account_del.subflow:FCMComposite_1" xmi:id="FCMComposite_1_17" location="325,600">
+<translation xmi:type="utility:ConstantString" string="account.del (Implementation)"/>
+</nodes>
+<nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_18" location="125,675" labelName="lead.create">
+<translation xmi:type="utility:ConstantString" string="lead.create (Label)"/>
+</nodes>
+<nodes xmi:type="lead_create.subflow:FCMComposite_1" xmi:id="FCMComposite_1_19" location="325,675">
+<translation xmi:type="utility:ConstantString" string="lead.create (Implementation)"/>
+</nodes>
+<nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_20" location="125,750" labelName="lead.findById">
+<translation xmi:type="utility:ConstantString" string="lead.findById (Label)"/>
+</nodes>
+<nodes xmi:type="lead_findById.subflow:FCMComposite_1" xmi:id="FCMComposite_1_21" location="325,750">
+<translation xmi:type="utility:ConstantString" string="lead.findById (Implementation)"/>
+</nodes>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_6" sourceTerminalName="OutTerminal.out" targetTerminalName="Input"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_7" sourceTerminalName="Output" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_9" sourceNode="FCMComposite_1_8" sourceTerminalName="OutTerminal.out" targetTerminalName="Input"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_9" sourceTerminalName="Output" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_7" targetNode="FCMComposite_1_11" sourceNode="FCMComposite_1_10" sourceTerminalName="OutTerminal.out" targetTerminalName="Input"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_8" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_11" sourceTerminalName="Output" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_9" targetNode="FCMComposite_1_13" sourceNode="FCMComposite_1_12" sourceTerminalName="OutTerminal.out" targetTerminalName="Input"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_10" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_13" sourceTerminalName="Output" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_11" targetNode="FCMComposite_1_15" sourceNode="FCMComposite_1_14" sourceTerminalName="OutTerminal.out" targetTerminalName="Input"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_12" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_15" sourceTerminalName="Output" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_13" targetNode="FCMComposite_1_17" sourceNode="FCMComposite_1_16" sourceTerminalName="OutTerminal.out" targetTerminalName="Input"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_14" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_17" sourceTerminalName="Output" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_15" targetNode="FCMComposite_1_19" sourceNode="FCMComposite_1_18" sourceTerminalName="OutTerminal.out" targetTerminalName="Input"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_16" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_19" sourceTerminalName="Output" targetTerminalName="InTerminal.in"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_17" targetNode="FCMComposite_1_21" sourceNode="FCMComposite_1_20" sourceTerminalName="OutTerminal.out" targetTerminalName="Input"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_18" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_21" sourceTerminalName="Output" targetTerminalName="InTerminal.in"/>
+</composition>
+<propertyOrganizer>
+    <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.connectorServiceUrl">
+        <propertyName xmi:type="utility:TranslatableString" key="Property.connectorServiceUrl" bundleName="account_create" pluginId="salesforce"/>
+        <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.connectorServiceInstanceId">
+            <propertyName xmi:type="utility:TranslatableString" key="Property.connectorServiceInstanceId" bundleName="account_create" pluginId="salesforce"/>
+        </propertyDescriptor>
+    </propertyDescriptor>
+</propertyOrganizer>
+<attributeLinks promotedAttribute="Property.connectorServiceInstanceId" overriddenNodes="FCMComposite_1_7">
+  <overriddenAttribute href="account_findById.subflow#Property.connectorServiceInstanceId"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceUrl" overriddenNodes="FCMComposite_1_7">
+  <overriddenAttribute href="account_findById.subflow#Property.connectorServiceUrl"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceInstanceId" overriddenNodes="FCMComposite_1_9">
+  <overriddenAttribute href="account_patchAttributes.subflow#Property.connectorServiceInstanceId"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceUrl" overriddenNodes="FCMComposite_1_9">
+  <overriddenAttribute href="account_patchAttributes.subflow#Property.connectorServiceUrl"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceInstanceId" overriddenNodes="FCMComposite_1_11">
+  <overriddenAttribute href="account_create.subflow#Property.connectorServiceInstanceId"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceUrl" overriddenNodes="FCMComposite_1_11">
+  <overriddenAttribute href="account_create.subflow#Property.connectorServiceUrl"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceInstanceId" overriddenNodes="FCMComposite_1_13">
+  <overriddenAttribute href="account_find.subflow#Property.connectorServiceInstanceId"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceUrl" overriddenNodes="FCMComposite_1_13">
+  <overriddenAttribute href="account_find.subflow#Property.connectorServiceUrl"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceInstanceId" overriddenNodes="FCMComposite_1_15">
+  <overriddenAttribute href="account_upsertWithWhere.subflow#Property.connectorServiceInstanceId"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceUrl" overriddenNodes="FCMComposite_1_15">
+  <overriddenAttribute href="account_upsertWithWhere.subflow#Property.connectorServiceUrl"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceInstanceId" overriddenNodes="FCMComposite_1_17">
+  <overriddenAttribute href="account_del.subflow#Property.connectorServiceInstanceId"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceUrl" overriddenNodes="FCMComposite_1_17">
+  <overriddenAttribute href="account_del.subflow#Property.connectorServiceUrl"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceInstanceId" overriddenNodes="FCMComposite_1_19">
+  <overriddenAttribute href="lead_create.subflow#Property.connectorServiceInstanceId"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceUrl" overriddenNodes="FCMComposite_1_19">
+  <overriddenAttribute href="lead_create.subflow#Property.connectorServiceUrl"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceInstanceId" overriddenNodes="FCMComposite_1_21">
+  <overriddenAttribute href="lead_findById.subflow#Property.connectorServiceInstanceId"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceUrl" overriddenNodes="FCMComposite_1_21">
+  <overriddenAttribute href="lead_findById.subflow#Property.connectorServiceUrl"/>
+</attributeLinks>
+<stickyBoard>
+<stickyNote location="25,25" >
+<body xmi:type="utility:ConstantString" string="This message flow is automatically generated.&#xA;Do not edit this message flow.&#xA;If you edit the message flow, your changes will be overwritten without a warning.&#xA;"/>
+</stickyNote>
+</stickyBoard>
+</eClassifiers>
+</ecore:EPackage>

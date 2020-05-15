@@ -1,0 +1,80 @@
+$integration: 'http://ibm.com/appconnect/integration/v2/integrationFile'
+integration:
+  type: api
+  trigger-interfaces:
+    trigger-interface-1:
+      triggers:
+        createSunflower:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-1'
+          input-context:
+            data: sunflower
+          output-context:
+            data: sunflower
+      options:
+        resources:
+          - business-object: sunflower
+            model:
+              $ref: '#/models/sunflower'
+            triggers:
+              create: createSunflower
+      type: api-trigger
+  action-interfaces:
+    action-interface-1:
+      type: api-action
+      business-object: message
+      connector-type: slack
+      account-name: Account 2
+      actions:
+        CREATE: {}
+  assemblies:
+    assembly-1:
+      assembly:
+        execute:
+          - create-action:
+              name: Slack Create message
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-1'
+              map:
+                mappings:
+                  - channel:
+                      template: CDP6M1198
+                  - text:
+                      template: 'Hello my name is {{$Request.name}} .'
+                $map: 'http://ibm.com/appconnect/map/v1'
+                input:
+                  - variable: Request
+                    $ref: '#/trigger/payload'
+          - response:
+              name: response-1
+              reply-maps:
+                - title: sunflower successfully created
+                  status-code: '201'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: SlackCreatemessage
+                        $ref: '#/node-output/Slack Create message/response/payload'
+                    mappings:
+                      - name:
+                          template: '{{$SlackCreatemessage}}'
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: SlackCreatemessage
+                      $ref: '#/node-output/Slack Create message/response/payload'
+  name: sunflower api
+models:
+  sunflower:
+    name: sunflower
+    properties:
+      name:
+        required: false
+        id: true
+        type: string
+    plural: sunflower
+    description: ' '
+    operations:
+      create: '#/integration/assemblies/assembly-1'

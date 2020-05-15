@@ -1,0 +1,922 @@
+swagger: '2.0'
+info:
+  title: Ultimate_Flow
+  version: 0.0.1
+schemes:
+  - http
+  - https
+basePath: /Ultimate_Flow
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /model1:
+    post:
+      tags:
+        - model1
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: model1.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: true
+          schema:
+            $ref: '#/definitions/model1'
+      responses:
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+    get:
+      tags:
+        - model1
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: model1.find
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              model1:
+                type: array
+                items:
+                  $ref: '#/definitions/model1'
+  '/model1/{string_property}':
+    get:
+      tags:
+        - model1
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: model1.findById
+      parameters:
+        - name: string_property
+          in: path
+          description: model1 id
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+    put:
+      tags:
+        - model1
+      summary: Replace an existing model instance or insert a new one.
+      operationId: model1.patchAttributes
+      parameters:
+        - name: string_property
+          in: path
+          description: model1 id
+          required: true
+          type: string
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: true
+          schema:
+            $ref: '#/definitions/model1'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+  /model1/upsertWithWhere:
+    post:
+      tags:
+        - model1
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: model1.upsertWithWhere
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+      parameters:
+        - name: data
+          in: body
+          description: An object or model property name/value pairs
+          required: true
+          schema:
+            $ref: '#/definitions/model1'
+  '/model1/{string_property}/customput1':
+    put:
+      tags:
+        - model1
+      summary: Custom PUT with 2 query parameters and id
+      operationId: model1.customput1
+      parameters:
+        - name: string_property
+          in: path
+          description: model1 string_property
+          type: string
+          required: true
+        - name: data
+          in: body
+          description: model1 data
+          schema:
+            $ref: '#/definitions/model1'
+          required: true
+        - name: q1
+          in: query
+          description: model1 q1
+          type: string
+          required: false
+        - name: q2
+          in: query
+          description: model1 q2
+          type: string
+          required: false
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+  '/model1/{string_property}/customput2':
+    put:
+      tags:
+        - model1
+      summary: Custom PUT with no query parameters and id
+      operationId: model1.customput2
+      parameters:
+        - name: string_property
+          in: path
+          description: model1 string_property
+          type: string
+          required: true
+        - name: data
+          in: body
+          description: model1 data
+          schema:
+            $ref: '#/definitions/model1'
+          required: true
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+  /model1/customput3:
+    put:
+      tags:
+        - model1
+      summary: Custom PUT with query parameter and no id
+      operationId: model1.customput3
+      parameters:
+        - name: data
+          in: body
+          description: model1 data
+          schema:
+            $ref: '#/definitions/model1'
+          required: true
+        - name: q1
+          in: query
+          description: model1 q1
+          type: string
+          required: false
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+  /model1/customput4:
+    put:
+      tags:
+        - model1
+      summary: Custom PUT with no query parameter and no id
+      operationId: model1.customput4
+      parameters:
+        - name: data
+          in: body
+          description: model1 data
+          schema:
+            $ref: '#/definitions/model1'
+          required: true
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model1'
+  '/model1/{string_property}/customhead1':
+    head:
+      tags:
+        - model1
+      summary: Custom HEAD with query and id
+      operationId: model1.customhead1
+      parameters:
+        - name: string_property
+          in: path
+          description: model1 string_property
+          type: string
+          required: true
+        - name: q1
+          in: query
+          description: model1 q1
+          type: string
+          required: false
+      responses:
+        '204':
+          description: Request was successful
+  '/model1/{string_property}/customhead2':
+    head:
+      tags:
+        - model1
+      summary: Custom HEAD with no query and id
+      operationId: model1.customhead2
+      parameters:
+        - name: string_property
+          in: path
+          description: model1 string_property
+          type: string
+          required: true
+      responses:
+        '204':
+          description: Request was successful
+  /model1/customhead3:
+    head:
+      tags:
+        - model1
+      summary: Custom HEAD with query and no id
+      operationId: model1.customhead3
+      parameters:
+        - name: q1
+          in: query
+          description: model1 q1
+          type: string
+          required: false
+      responses:
+        '204':
+          description: Request was successful
+  /model1/customhead4:
+    head:
+      tags:
+        - model1
+      summary: Custom HEAD with no query and no id
+      operationId: model1.customhead4
+      parameters: []
+      responses:
+        '204':
+          description: Request was successful
+  '/model2/{number_property}':
+    get:
+      tags:
+        - model2
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: model2.findById
+      parameters:
+        - name: number_property
+          in: path
+          description: model2 id
+          required: true
+          type: number
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+    put:
+      tags:
+        - model2
+      summary: Replace an existing model instance or insert a new one.
+      operationId: model2.patchAttributes
+      parameters:
+        - name: number_property
+          in: path
+          description: model2 id
+          required: true
+          type: number
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: true
+          schema:
+            $ref: '#/definitions/model2'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+  /model2:
+    get:
+      tags:
+        - model2
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: model2.find
+      parameters:
+        - in: query
+          name: skip
+          required: false
+          type: number
+        - in: query
+          name: limit
+          required: false
+          type: number
+        - in: query
+          name: filter
+          required: false
+          type: string
+          format: JSON
+        - in: query
+          name: string_property
+          required: false
+          type: string
+        - in: query
+          name: date_property
+          required: false
+          type: string
+          format: date-time
+        - in: query
+          name: boolean_property
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              model2:
+                type: array
+                items:
+                  $ref: '#/definitions/model2'
+              next:
+                type: object
+                properties:
+                  skip:
+                    type: number
+                  limit:
+                    type: number
+  /model2/upsertWithWhere:
+    post:
+      tags:
+        - model2
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: model2.upsertWithWhere
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+      parameters:
+        - name: data
+          in: body
+          description: An object or model property name/value pairs
+          required: true
+          schema:
+            $ref: '#/definitions/model2'
+        - in: query
+          name: string_property
+          required: false
+          type: string
+        - in: query
+          name: date_property
+          required: false
+          type: string
+          format: date-time
+        - in: query
+          name: boolean_property
+          required: false
+          type: boolean
+        - name: where
+          in: query
+          required: false
+          type: string
+          format: JSON
+  '/model2/{number_property}/custompost1':
+    post:
+      tags:
+        - model2
+      summary: Custom POST with 2 query parameters and id
+      operationId: model2.custompost1
+      parameters:
+        - name: number_property
+          in: path
+          description: model2 number_property
+          type: string
+          required: true
+        - name: data
+          in: body
+          description: model2 data
+          schema:
+            $ref: '#/definitions/model2'
+          required: true
+        - name: q1
+          in: query
+          description: model2 q1
+          type: string
+          required: false
+        - name: q2
+          in: query
+          description: model2 q2
+          type: string
+          required: false
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+  '/model2/{number_property}/custompost2':
+    post:
+      tags:
+        - model2
+      summary: Custom POST with no query parameters and id
+      operationId: model2.custompost2
+      parameters:
+        - name: number_property
+          in: path
+          description: model2 number_property
+          type: string
+          required: true
+        - name: data
+          in: body
+          description: model2 data
+          schema:
+            $ref: '#/definitions/model2'
+          required: true
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+  /model2/custompost3:
+    post:
+      tags:
+        - model2
+      summary: Custom POST with query parameter and no id
+      operationId: model2.custompost3
+      parameters:
+        - name: data
+          in: body
+          description: model2 data
+          schema:
+            $ref: '#/definitions/model2'
+          required: true
+        - name: q1
+          in: query
+          description: model2 q1
+          type: string
+          required: false
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+  /model2/custompost4:
+    post:
+      tags:
+        - model2
+      summary: Custom POST with no query parameter and no id
+      operationId: model2.custompost4
+      parameters:
+        - name: data
+          in: body
+          description: model2 data
+          schema:
+            $ref: '#/definitions/model2'
+          required: true
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+  '/model2/{number_property}/custompatch1':
+    patch:
+      tags:
+        - model2
+      summary: Custom PATCH with query and id
+      operationId: model2.custompatch1
+      parameters:
+        - name: number_property
+          in: path
+          description: model2 number_property
+          type: string
+          required: true
+        - name: data
+          in: body
+          description: model2 data
+          schema:
+            $ref: '#/definitions/model2'
+          required: true
+        - name: q1
+          in: query
+          description: model2 q1
+          type: string
+          required: false
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+  '/model2/{number_property}/custompatch2':
+    patch:
+      tags:
+        - model2
+      summary: Custom PATCH with no query and id
+      operationId: model2.custompatch2
+      parameters:
+        - name: number_property
+          in: path
+          description: model2 number_property
+          type: string
+          required: true
+        - name: data
+          in: body
+          description: model2 data
+          schema:
+            $ref: '#/definitions/model2'
+          required: true
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+  /model2/custompatch3:
+    patch:
+      tags:
+        - model2
+      summary: Custom PATCH with query and no id
+      operationId: model2.custompatch3
+      parameters:
+        - name: data
+          in: body
+          description: model2 data
+          schema:
+            $ref: '#/definitions/model2'
+          required: true
+        - name: q1
+          in: query
+          description: model2 q1
+          type: string
+          required: false
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+  /model2/custompatch4:
+    patch:
+      tags:
+        - model2
+      summary: Custom PATCH with no query and no id
+      operationId: model2.custompatch4
+      parameters:
+        - name: data
+          in: body
+          description: model2 data
+          schema:
+            $ref: '#/definitions/model2'
+          required: true
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model2'
+  /model3:
+    get:
+      tags:
+        - model3
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: model3.find
+      parameters:
+        - in: query
+          name: token
+          required: false
+          type: string
+        - in: query
+          name: limit
+          required: false
+          type: number
+        - in: query
+          name: filter
+          required: false
+          type: string
+          format: JSON
+        - in: query
+          name: number_property
+          required: false
+          type: number
+        - in: query
+          name: date_property
+          required: false
+          type: string
+          format: date-time
+        - in: query
+          name: boolean_property
+          required: false
+          type: boolean
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              model3:
+                type: array
+                items:
+                  $ref: '#/definitions/model3'
+              next:
+                type: object
+                properties:
+                  next_page_token:
+                    type: string
+                  limit:
+                    type: number
+  /model3/upsertWithWhere:
+    post:
+      tags:
+        - model3
+      summary: >-
+        Update an existing model instance or insert a new one into the data
+        source based on the where criteria.
+      operationId: model3.upsertWithWhere
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model3'
+        '201':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model3'
+      parameters:
+        - name: data
+          in: body
+          description: An object or model property name/value pairs
+          required: true
+          schema:
+            $ref: '#/definitions/model3'
+        - in: query
+          name: number_property
+          required: false
+          type: number
+        - in: query
+          name: date_property
+          required: false
+          type: string
+          format: date-time
+        - in: query
+          name: boolean_property
+          required: false
+          type: boolean
+        - name: where
+          in: query
+          required: false
+          type: string
+          format: JSON
+  '/model3/{string_property}/customget1':
+    get:
+      tags:
+        - model3
+      summary: Custom GET with query and id
+      operationId: model3.customget1
+      parameters:
+        - name: string_property
+          in: path
+          description: model3 string_property
+          type: string
+          required: true
+        - name: q1
+          in: query
+          description: model3 q1
+          type: string
+          required: false
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model3'
+  '/model3/{string_property}/customget2':
+    get:
+      tags:
+        - model3
+      summary: Custom GET with no query and id
+      operationId: model3.customget2
+      parameters:
+        - name: string_property
+          in: path
+          description: model3 string_property
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model3'
+  /model3/customget3:
+    get:
+      tags:
+        - model3
+      summary: Custom GET with no query and no id
+      operationId: model3.customget3
+      parameters: []
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model3'
+  /model3/customget4:
+    get:
+      tags:
+        - model3
+      summary: Custom GET with query and no id
+      operationId: model3.customget4
+      parameters:
+        - name: q1
+          in: query
+          description: model3 q1
+          type: string
+          required: false
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model3'
+  '/model3/{string_property}/customdelete1':
+    delete:
+      tags:
+        - model3
+      summary: Custom DELETE with query and id
+      operationId: model3.customdelete1
+      parameters:
+        - name: string_property
+          in: path
+          description: model3 string_property
+          type: string
+          required: true
+        - name: q1
+          in: query
+          description: model3 q1
+          type: string
+          required: false
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model3'
+  '/model3/{string_property}/customdelete2':
+    delete:
+      tags:
+        - model3
+      summary: Custom DELETE with no query and id
+      operationId: model3.customdelete2
+      parameters:
+        - name: string_property
+          in: path
+          description: model3 string_property
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model3'
+  /model3/customdelete3:
+    delete:
+      tags:
+        - model3
+      summary: Custom DELETE with query and no id
+      operationId: model3.customdelete3
+      parameters:
+        - name: q1
+          in: query
+          description: model3 q1
+          type: string
+          required: false
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model3'
+  /model3/customdelete4:
+    delete:
+      tags:
+        - model3
+      summary: Custom DELETE with no query and no id
+      operationId: model3.customdelete4
+      parameters: []
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/model3'
+definitions:
+  model1:
+    description: ''
+    type: object
+    properties:
+      string_property:
+        type: string
+      number_property:
+        type: number
+      date_property:
+        type: string
+        format: date-time
+      boolean_property:
+        type: boolean
+      empty_object_property:
+        type: object
+        properties: {}
+      object_property:
+        type: object
+        properties:
+          nested_object_property:
+            type: object
+            properties:
+              nested_string_property:
+                type: string
+          nested_number_property:
+            type: number
+          nested_date_property:
+            type: string
+            format: date-time
+      array_property:
+        type: array
+        items:
+          type: object
+          properties:
+            nested_array_property:
+              type: array
+              items:
+                type: string
+    additionalProperties: false
+  model2:
+    description: ''
+    type: object
+    properties:
+      string_property:
+        type: string
+      number_property:
+        type: number
+      date_property:
+        type: string
+        format: date-time
+      boolean_property:
+        type: boolean
+    additionalProperties: false
+  model3:
+    description: ''
+    type: object
+    properties:
+      string_property:
+        type: string
+      number_property:
+        type: number
+      date_property:
+        type: string
+        format: date-time
+      boolean_property:
+        type: boolean
+    additionalProperties: false

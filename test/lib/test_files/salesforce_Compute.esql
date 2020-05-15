@@ -1,0 +1,22 @@
+DECLARE connectorServiceUrl EXTERNAL CHARACTER;
+DECLARE connectorServiceInstanceId EXTERNAL CHARACTER;
+
+CREATE COMPUTE MODULE "salesforce_Compute"
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot = InputRoot;
+
+		-- Set path and HTTP verb
+		SET OutputLocalEnvironment.Destination.HTTP.RequestLine.RequestURI = InputLocalEnvironment.REST.Input.Path;
+		SET OutputLocalEnvironment.Destination.HTTP.RequestLine.Method = InputLocalEnvironment.REST.Input.Method;
+
+		-- Set query string in output
+        IF EXISTS(InputRoot.HTTPInputHeader."X-Query-String"[]) THEN
+            SET OutputLocalEnvironment.Destination.HTTP.RequestLine.RequestURI = OutputLocalEnvironment.Destination.HTTP.RequestLine.RequestURI || '?' || InputRoot.HTTPInputHeader."X-Query-String";
+        END IF;
+
+		-- Set connector service URL in header
+		SET OutputRoot.HTTPRequestHeader."x-ibm-ace-csurl" = connectorServiceUrl;
+		SET OutputRoot.HTTPRequestHeader."x-ibm-ace-instanceid" = connectorServiceInstanceId;
+	END;
+END MODULE;

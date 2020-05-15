@@ -1,0 +1,62 @@
+{
+  "name": "@ibm-app-connect/bar-build",
+  "version": "0.0.1",
+  "description": "Generates BAR file from designer flow for use in ACE software.",
+  "license": "MIT",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "nyc --reporter=cobertura --reporter=html --reporter=text ./node_modules/mocha/bin/_mocha \"test/require-all-code.js\" \"test/**/*-test.js\" --exit",
+    "posttest": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "test-no-coverage": "mocha \"test/require-all-code.js\" \"test/**/*-test.js\" || true",
+    "lint": "standard --verbose --fix",
+    "postlint": "npm run doc",
+    "doc": "jsdoc --configure jsdoc.json .",
+    "local": "node test-server"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "boilerplateBarFiles/",
+    "templates"
+  ],
+  "pkg": {
+    "assets": [
+      "templates/**"
+    ]
+  },
+  "bin":{
+    "bar-build":"bin/bar-build.js"
+  },
+  "dependencies": {
+    "archiver": "^4.0.1",
+    "handlebars": "^4.2.0",
+    "js-yaml": "^3.13.1",
+    "jsonata": "^1.8.3",
+    "message-catalog-manager": "^2.2.2",
+    "yazl": "^2.5.1"
+  },
+  "devDependencies": {
+    "bl": "^4.0.0",
+    "body-parser": "^1.19.0",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "express": "^4.16.4",
+    "fs": "^0.0.2",
+    "jsdoc": "^3.4.2",
+    "memorystream": "^0.3.1",
+    "mocha": "^7.0.0",
+    "node-mocks-http": "^1.7.6",
+    "nyc": "^15.0.0",
+    "portscanner": "^2.2.0",
+    "sinon": "^9.0.0",
+    "sinon-chai": "^3.0.0",
+    "standard": "^14.0.2",
+    "swagger-parser": "^9.0.0",
+    "yauzl": "^2.10.0"
+  },
+  "standard": {
+    "globals": [],
+    "env": "mocha"
+  },
+  "readmeFilename": "README.md"
+}

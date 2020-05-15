@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmWSInput.msgnode="ComIbmWSInput.msgnode" xmlns:ComIbmRouteToLabel.msgnode="ComIbmRouteToLabel.msgnode" xmlns:ComIbmWSReply.msgnode="ComIbmWSReply.msgnode" xmlns:ComIbmLabel.msgnode="ComIbmLabel.msgnode" {{#operations}}xmlns:{{subflowName}}.subflow="{{subflowName}}.subflow" {{/operations}}xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow"
+xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="gen/{{mainFlowName}}.msgflow"
+nsPrefix="gen_{{mainFlowName}}.msgflow">
+<eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+<eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+<eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.connectorServiceUrl" name="connectorServiceUrl" >
+  <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+</eStructuralFeatures>
+<eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="Property.connectorServiceInstanceId" name="connectorServiceInstanceId" >
+  <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+</eStructuralFeatures>
+<translation xmi:type="utility:TranslatableString" key="{{mainFlowName}}" bundleName="gen/{{mainFlowName}}" pluginId="flowAPIgenerated"/>
+<colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/flowAPIgenerated/icons/full/obj16/{{mainFlowName}}.gif"/>
+<colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/flowAPIgenerated/icons/full/obj30/{{mainFlowName}}.gif"/>
+<composition>
+<nodes xmi:type="ComIbmWSInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="25,150" URLSpecifier="{{basePath}}*" parseQueryString="true" messageDomainProperty="JSON" faultFormat="HTML">
+<translation xmi:type="utility:ConstantString" string="HTTP Input"/>
+</nodes>
+<nodes xmi:type="ComIbmRouteToLabel.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="125,150">
+<translation xmi:type="utility:ConstantString" string="Route To Label"/>
+</nodes>
+<nodes xmi:type="ComIbmWSReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="525,150">
+<translation xmi:type="utility:ConstantString" string="HTTP Reply"/>
+</nodes>
+{{#operations}}
+<nodes xmi:type="ComIbmLabel.msgnode:FCMComposite_1" xmi:id="{{labelNodeId}}" location="125,{{branchYPos}}" labelName="{{name}}">
+<translation xmi:type="utility:ConstantString" string="{{name}} (Label)"/>
+</nodes>
+<nodes xmi:type="{{subflowName}}.subflow:FCMComposite_1" xmi:id="{{subflowNodeId}}" location="325,{{branchYPos}}">
+<translation xmi:type="utility:ConstantString" string="{{name}} (Implementation)"/>
+</nodes>
+{{/operations}}
+<connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+{{#operations}}
+<connections xmi:type="eflow:FCMConnection" xmi:id="{{connection1Id}}" targetNode="{{subflowNodeId}}" sourceNode="{{labelNodeId}}" sourceTerminalName="OutTerminal.out" targetTerminalName="Input"/>
+<connections xmi:type="eflow:FCMConnection" xmi:id="{{connection2Id}}" targetNode="FCMComposite_1_3" sourceNode="{{subflowNodeId}}" sourceTerminalName="Output" targetTerminalName="InTerminal.in"/>
+{{/operations}}
+</composition>
+<propertyOrganizer>
+    <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.connectorServiceUrl">
+        <propertyName xmi:type="utility:TranslatableString" key="Property.connectorServiceUrl" bundleName="account_create" pluginId="{{mainFlowName}}"/>
+        <propertyDescriptor groupName="Group.Basic" configurable="true" userDefined="true" describedAttribute="Property.connectorServiceInstanceId">
+            <propertyName xmi:type="utility:TranslatableString" key="Property.connectorServiceInstanceId" bundleName="account_create" pluginId="{{mainFlowName}}"/>
+        </propertyDescriptor>
+    </propertyDescriptor>
+</propertyOrganizer>
+{{#operations}}
+<attributeLinks promotedAttribute="Property.connectorServiceInstanceId" overriddenNodes="{{subflowNodeId}}">
+  <overriddenAttribute href="{{subflowName}}.subflow#Property.connectorServiceInstanceId"/>
+</attributeLinks>
+<attributeLinks promotedAttribute="Property.connectorServiceUrl" overriddenNodes="{{subflowNodeId}}">
+  <overriddenAttribute href="{{subflowName}}.subflow#Property.connectorServiceUrl"/>
+</attributeLinks>
+{{/operations}}
+<stickyBoard>
+<stickyNote location="25,25" >
+<body xmi:type="utility:ConstantString" string="This message flow is automatically generated.&#xA;Do not edit this message flow.&#xA;If you edit the message flow, your changes will be overwritten without a warning.&#xA;"/>
+</stickyNote>
+</stickyBoard>
+</eClassifiers>
+</ecore:EPackage>

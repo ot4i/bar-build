@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><Broker>
+<CompiledApplication>
+<ConfigurableProperty uri="startMode"/>
+</CompiledApplication>
+{{#operations}}
+<CompiledMessageFlow name="{{subflowName}}" type="subflow">
+<ConfigurableProperty uri="{{subflowName}}#connectorServiceUrl"/>
+<ConfigurableProperty uri="{{subflowName}}#connectorServiceInstanceId"/>
+<ConfigurableProperty uri="{{subflowName}}#Compute.dataSource"/>
+<ConfigurableProperty uri="{{subflowName}}#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="{{subflowName}}#Compute.validateMaster"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="{{subflowName}}#HTTP Request.URLSpecifier"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request.timeoutForServer"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request.httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="{{subflowName}}#HTTP Request.httpVersion"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request.enableKeepAlive"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request.requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="{{subflowName}}#HTTP Request.protocol"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request.allowedCiphers"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request.hostnameChecking"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request.keyAlias"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request.enableCRLCheck"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request.acceptCompressedResponses"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request.validateMaster"/>
+{{! The syntax below (space and the tilde) is necessary to avoid 3 opening brackets next to each other}}
+<ConfigurableProperty override="{ {{~mainFlowName}}PolicyProject}:{{mainFlowName}}" uri="{{subflowName}}#HTTP Request.securityProfileName"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="{{subflowName}}#HTTP Request (no auth).URLSpecifier"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request (no auth).timeoutForServer"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request (no auth).httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="{{subflowName}}#HTTP Request (no auth).httpVersion"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request (no auth).enableKeepAlive"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request (no auth).requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="{{subflowName}}#HTTP Request (no auth).protocol"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request (no auth).allowedCiphers"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request (no auth).hostnameChecking"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request (no auth).keyAlias"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request (no auth).enableCRLCheck"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request (no auth).acceptCompressedResponses"/>
+<ConfigurableProperty uri="{{subflowName}}#HTTP Request (no auth).validateMaster"/>
+</CompiledMessageFlow>
+{{/operations}}
+<CompiledMessageFlow name="gen.{{mainFlowName}}">
+<ConfigurableProperty override="3" uri="gen.{{mainFlowName}}#additionalInstances"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#notificationThresholdMsgsPerSec"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#maximumRateMsgsPerSec"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#processingTimeoutSec"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#processingTimeoutAction"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#wlmPolicy"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#commitCount"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#commitInterval"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#coordinatedTransaction"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#consumerPolicySet"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#providerPolicySet"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#consumerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#providerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#securityProfileName"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#monitoringProfile"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#startMode"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#startInstancesWhenFlowStarts"/>
+<ConfigurableProperty override="{{csInstanceId}}" uri="gen.{{mainFlowName}}#connectorServiceInstanceId"/>
+<ConfigurableProperty override="{{csUrl}}" uri="gen.{{mainFlowName}}#connectorServiceUrl"/>
+<ConfigurableProperty override="{{basePath}}*" uri="gen.{{mainFlowName}}#HTTP Input.URLSpecifier"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#HTTP Input.useHTTPS"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#HTTP Input.decompressInputMessage"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#HTTP Input.timeoutForClient"/>
+<ConfigurableProperty override="HTML" uri="gen.{{mainFlowName}}#HTTP Input.faultFormat"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#HTTP Input.validateMaster"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#HTTP Input.securityProfileName"/>
+<ConfigurableProperty uri="gen.{{mainFlowName}}#HTTP Reply.validateMaster"/>
+</CompiledMessageFlow>
+</Broker>

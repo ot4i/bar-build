@@ -1,0 +1,11 @@
+.idea/*
+coverage/*
+jsdoc/*
+node_modules/
+.nyc_output/
+.DS_Store
+.project
+npm-debug.log
+package-lock.json
+.npmrc
+*.tgz

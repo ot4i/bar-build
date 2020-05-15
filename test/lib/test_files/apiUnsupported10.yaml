@@ -1,0 +1,246 @@
+$integration: 'http://ibm.com/appconnect/integration/v2/integrationFile'
+integration:
+  type: api
+  trigger-interfaces:
+    trigger-interface-1:
+      triggers:
+        retrieveApiUnsupported1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-1'
+          input-context:
+            data: apiUnsupported1
+          output-context:
+            data: apiUnsupported1
+      options:
+        resources:
+          - business-object: apiUnsupported1
+            model:
+              $ref: '#/models/apiUnsupported1'
+            triggers:
+              retrieve: retrieveApiUnsupported1
+      type: api-trigger
+    trigger-interface-2:
+      type: extract-trigger
+      triggers:
+        RETRIEVEALL:
+          input-context:
+            data: mail
+          assembly:
+            $ref: '#/integration/assemblies/assembly-2'
+      connector-type: gmail
+      account-name: Account 3 - suhr
+    trigger-interface-3:
+      type: event-collector
+      triggers:
+        SITUATION_DETECTED:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-3'
+      options:
+        situation:
+          time-window:
+            duration: PT1H
+          title: Detect situation
+          events:
+            - ref: '#/integration/action-interfaces/action-interface-4'
+              name: Situation detector
+              cardinality:
+                type: atLeast
+                value: 10
+              correlation-key: '{{$Batchprocess.threadId}}'
+          trigger-name: SITUATION_DETECTED
+        input:
+          - variable: Batchprocess
+            $ref: '#/block/Batch process/current-item'
+          - variable: api
+            $ref: '#/trigger/api/parameters'
+          - variable: HTTPInvokemethod
+            $ref: >-
+              #/block/Batch process/node-output/HTTP Invoke
+              method/response/payload
+          - variable: HTTPInvokemethodMetadata
+            $ref: '#/block/Batch process/node-output/HTTP Invoke method/response'
+    trigger-interface-4:
+      type: batch-completion-trigger
+      triggers:
+        COMPLETE:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-4'
+  action-interfaces:
+    action-interface-1:
+      type: batch-action
+      actions:
+        START: {}
+      options:
+        extract:
+          $ref: '#/integration/trigger-interfaces/trigger-interface-2'
+        completion:
+          $ref: '#/integration/trigger-interfaces/trigger-interface-4'
+    action-interface-2:
+      type: api-action
+      business-object: request
+      connector-type: http
+      account-name: Account 1
+      actions:
+        INVOKE: {}
+    action-interface-3:
+      type: notification-card
+      actions: {}
+      options:
+        card:
+          layout:
+            direction: vertical
+            style: layoutA
+            items:
+              - direction: horizontal
+                style: header
+                items:
+                  - style: icon
+                    widget_id: icon
+                  - direction: vertical
+                    items:
+                      - style: title
+                        widget_id: nameLabel
+                      - style: subtitle
+                        widget_id: timestamp
+              - direction: vertical
+                style: content
+                items:
+                  - widget_id: descriptionLabel
+              - style: buttons
+                widget_id: btnGrp1
+          widgets:
+            - id: icon
+              widget: icon
+            - id: timestamp
+              widget: timestamp
+            - id: btnGrp1
+              widget: buttonGroup
+              widget_ids: []
+            - id: nameLabel
+              widget: text
+              binding: description
+              value: New notification
+            - id: descriptionLabel
+              widget: text
+              value: ''
+        input:
+          - variable: Batchprocess
+            $ref: '#/block/Batch process/current-item'
+          - variable: api
+            $ref: '#/trigger/api/parameters'
+          - variable: HTTPInvokemethod
+            $ref: >-
+              #/block/Batch process/node-output/HTTP Invoke
+              method/response/payload
+          - variable: HTTPInvokemethodMetadata
+            $ref: '#/block/Batch process/node-output/HTTP Invoke method/response'
+    action-interface-4:
+      type: event-emitter
+  assemblies:
+    assembly-1:
+      assembly:
+        execute:
+          - batch-retrieve-action:
+              name: Batch process
+              filter:
+                limit: 100
+              pagination-type: TOKEN
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-1'
+    assembly-2:
+      assembly:
+        execute:
+          - custom-action:
+              name: HTTP Invoke method
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-2'
+              action: INVOKE
+              map:
+                mappings:
+                  - method:
+                      template: GET
+                  - url:
+                      template: 'http://httpbin.org/get?q1=v1{{$Batchprocess.threadId}}'
+                $map: 'http://ibm.com/appconnect/map/v1'
+                input:
+                  - variable: Batchprocess
+                    $ref: '#/block/Batch process/current-item'
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+          - notification:
+              name: Notification
+              map:
+                $map: 'http://ibm.com/appconnect/map/v1'
+                mappings: []
+                input:
+                  - variable: Batchprocess
+                    $ref: '#/block/Batch process/current-item'
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+                  - variable: HTTPInvokemethod
+                    $ref: >-
+                      #/block/Batch process/node-output/HTTP Invoke
+                      method/response/payload
+                  - variable: HTTPInvokemethodMetadata
+                    $ref: >-
+                      #/block/Batch process/node-output/HTTP Invoke
+                      method/response
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-3'
+          - emit-event:
+              name: Situation detector
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-4'
+    assembly-3:
+      assembly:
+        execute:
+          - logging:
+              name: Log
+              map:
+                $map: 'http://ibm.com/appconnect/map/v1'
+                input:
+                  - variable: Situationdetector
+                    $ref: '#/trigger/payload/Situation detector'
+                mappings:
+                  - logLevel:
+                      template: Info
+                  - logMessage:
+                      template: >-
+                        Logging thrdId:
+                        {{$Situationdetector.Batchprocess.threadId}}
+    assembly-4:
+      assembly:
+        execute:
+          - set-variable:
+              name: Set variable
+              map:
+                $map: 'http://ibm.com/appconnect/map/v1'
+                input:
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+                  - variable: Batchprocess
+                    $ref: '#/node-output/Batch process/response/payload'
+                customSchemas:
+                  properties.`variable`:
+                    type: object
+                    properties:
+                      batchValue:
+                        type: string
+                mappings:
+                  - variable:
+                      mappings:
+                        - batchValue:
+                            template: '{{$Batchprocess.status}}'
+  name: apiUnsupported1
+models:
+  apiUnsupported1:
+    name: apiUnsupported1
+    properties:
+      name:
+        required: false
+        id: true
+        type: string
+    plural: apiUnsupported1
+    description: ' '
+    operations:
+      retrieve: '#/integration/assemblies/assembly-1'

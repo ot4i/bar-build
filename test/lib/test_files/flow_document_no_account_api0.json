@@ -1,0 +1,98 @@
+{
+  "$integration": "http://ibm.com/appconnect/integration/v2/integrationFile",
+  "integration": {
+    "type": "api",
+    "trigger-interfaces": {
+      "trigger-interface-1": {
+        "triggers": {
+          "retrieveEcho": {
+            "assembly": {
+              "$ref": "#/integration/assemblies/assembly-1"
+            },
+            "input-context": {
+              "data": "echo"
+            },
+            "output-context": {
+              "data": "echo"
+            }
+          }
+        },
+        "options": {
+          "resources": [
+            {
+              "business-object": "echo",
+              "model": {
+                "$ref": "#/models/echo"
+              },
+              "triggers": {
+                "retrieve": "retrieveEcho"
+              }
+            }
+          ]
+        },
+        "type": "api-trigger"
+      }
+    },
+    "action-interfaces": {
+    },
+    "assemblies": {
+      "assembly-1": {
+        "assembly": {
+          "execute": [
+            {
+              "response": {
+                "name": "response-1",
+                "reply-maps": [
+                  {
+                    "title": "echo successfully retrieved",
+                    "status-code": "200",
+                    "map": {
+                      "$map": "http://ibm.com/appconnect/map/v1",
+                      "input": [
+                        {
+                          "variable": "api",
+                          "$ref": "#/trigger/api/parameters"
+                        }
+                      ],
+                      "mappings": [
+                        {
+                          "id": {
+                            "template": "{{$api.id}}"
+                          }
+                        }
+                      ]
+                    },
+                    "input": [
+                      {
+                        "variable": "api",
+                        "$ref": "#/trigger/api/parameters"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "name": "echo"
+  },
+  "models": {
+    "echo": {
+      "name": "echo",
+      "properties": {
+        "id": {
+          "required": false,
+          "id": true,
+          "type": "string"
+        }
+      },
+      "plural": "echo",
+      "description": " ",
+      "operations": {
+        "retrieve": "#/integration/assemblies/assembly-1"
+      }
+    }
+  }
+}

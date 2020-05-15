@@ -1,0 +1,47 @@
+CREATE COMPUTE MODULE "{{mainFlowName}}_FailureHandler"
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		SET OutputRoot = InputRoot;
+
+		-- Set response code
+		SET OutputLocalEnvironment.Destination.HTTP.ReplyStatusCode = 500;
+
+        -- Check the BIP message and put out an appropriate error message
+	    DECLARE messageNumber INTEGER;
+        DECLARE messageText char;
+        CALL getLastExceptionDetail(InputExceptionList, messageNumber, messageText);
+
+        IF (messageNumber = 2769) THEN
+            SET OutputRoot.JSON.Data.Error = 'The {{mainFlowName}} security identity could not be found. Ensure that you have created a Kubernetes secret containing your IBM Cloud API key and you have configured the integration server to use the Kubernetes secret.';
+            PROPAGATE TO TERMINAL 'out1';
+            RETURN FALSE;
+        ELSEIF (messageNumber = 3150 OR messageNumber = 2112) THEN
+            SET OutputRoot.JSON.Data.Error = 'The deployed API failed to connect to the IBM App Connect Designer sidecar. Ensure that the API is deployed to an integration server where IBM App Connect Designer flows are supported and enabled.';
+        ELSE
+            SET OutputRoot.JSON.Data.BIP.Number = messageNumber;
+            SET OutputRoot.JSON.Data.BIP.Message = messageText;
+        END IF;
+	END;
+END MODULE;
+
+/****************************************************************************
+ * A procedure that will get the details of the last exception from a message
+ * IN InputTree:  The incoming exception list
+ * IN messageNumber:  The last message numberr.
+ * IN messageText: The last message text.
+ *****************************************************************************/
+CREATE PROCEDURE getLastExceptionDetail(IN InputTree reference, OUT messageNumber integer, OUT messageText char)
+BEGIN
+	-- Create a reference to the first child of the exception list
+    declare ptrException reference to InputTree.*[1];
+    -- keep looping while the moves to the child of exception list work
+	WHILE lastmove(ptrException) DO
+		-- store the current values for the error number and text
+		IF ptrException.Number is not null THEN
+    		SET messageNumber = ptrException.Number;
+    		SET messageText = ptrException.Text;
+		END IF;
+		-- now move to the last child which should be the next exceptionlist
+		move ptrException lastchild;
+	END WHILE;
+END;

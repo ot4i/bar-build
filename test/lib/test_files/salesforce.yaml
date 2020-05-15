@@ -1,0 +1,690 @@
+$integration: 'http://ibm.com/appconnect/integration/v2/integrationFile'
+integration:
+  type: api
+  trigger-interfaces:
+    trigger-interface-1:
+      triggers:
+        retrieveAccount:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-1'
+          input-context:
+            data: account
+          output-context:
+            data: account
+        createAccount:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-2'
+          input-context:
+            data: account
+          output-context:
+            data: account
+        upsertwithwhereAccount:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-4'
+          input-context:
+            data: account
+          output-context:
+            data: account
+        delAccount:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-6'
+          input-context:
+            data: account
+          output-context:
+            data: account
+        replaceorcreateAccount:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-3'
+          input-context:
+            data: account
+          output-context:
+            data: account
+        retrieveallAccount:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-5'
+          input-context:
+            data: account
+          output-context:
+            data: account
+        createLead:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-7'
+          input-context:
+            data: lead
+          output-context:
+            data: lead
+        retrieveLead:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-8'
+          input-context:
+            data: lead
+          output-context:
+            data: lead
+      options:
+        resources:
+          - business-object: account
+            model:
+              $ref: '#/models/account'
+            triggers:
+              retrieve: retrieveAccount
+              create: createAccount
+              upsertwithwhere: upsertwithwhereAccount
+              del: delAccount
+              replaceorcreate: replaceorcreateAccount
+              retrieveall: retrieveallAccount
+          - business-object: lead
+            model:
+              $ref: '#/models/lead'
+            triggers:
+              create: createLead
+              retrieve: retrieveLead
+      type: api-trigger
+  action-interfaces:
+    action-interface-2:
+      type: api-action
+      business-object: Account
+      connector-type: salesforce
+      account-name: Account 1
+      actions:
+        RETRIEVEALL: {}
+    action-interface-1:
+      type: api-action
+      business-object: Account
+      connector-type: salesforce
+      account-name: Account 1
+      actions:
+        CREATE: {}
+    action-interface-4:
+      type: api-action
+      business-object: Account
+      connector-type: salesforce
+      account-name: Account 1
+      actions:
+        UPSERTWITHWHERE: {}
+    action-interface-6:
+      type: api-action
+      business-object: Account
+      connector-type: salesforce
+      account-name: Account 1
+      actions:
+        DELETEALL: {}
+    action-interface-3:
+      type: api-action
+      business-object: Account
+      connector-type: salesforce
+      account-name: Account 1
+      actions:
+        UPDATEALL: {}
+    action-interface-7:
+      type: api-action
+      business-object: Account
+      connector-type: salesforce
+      account-name: Account 1
+      actions:
+        RETRIEVEALL: {}
+    action-interface-5:
+      type: api-action
+      business-object: Lead
+      connector-type: salesforce
+      account-name: Account 1
+      actions:
+        CREATE: {}
+    action-interface-8:
+      type: api-action
+      business-object: Lead
+      connector-type: salesforce
+      account-name: Account 1
+      actions:
+        RETRIEVEALL: {}
+  assemblies:
+    assembly-1:
+      assembly:
+        execute:
+          - retrieve-action:
+              name: Salesforce Retrieve accounts
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-2'
+              filter:
+                where:
+                  Id: '{{$api.id}}'
+                input:
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+                limit: 1
+              allow-truncation: true
+              pagination-type: TOKEN
+              allow-empty-output: true
+          - response:
+              name: response-1
+              reply-maps:
+                - title: account successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                      - variable: SalesforceRetrieveaccounts
+                        $ref: >-
+                          #/node-output/Salesforce Retrieve
+                          accounts/response/payload
+                      - variable: SalesforceRetrieveaccountsMetadata
+                        $ref: '#/node-output/Salesforce Retrieve accounts/response'
+                    mappings:
+                      - address:
+                          mappings:
+                            - city:
+                                template: '{{$SalesforceRetrieveaccounts.BillingCity}}'
+                            - country:
+                                template: '{{$SalesforceRetrieveaccounts.BillingCountry}}'
+                            - street:
+                                template: '{{$SalesforceRetrieveaccounts.BillingStreet}}'
+                      - id:
+                          template: '{{$api.id}}'
+                      - name:
+                          template: '{{$SalesforceRetrieveaccounts.Name}}'
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+                    - variable: SalesforceRetrieveaccounts
+                      $ref: >-
+                        #/node-output/Salesforce Retrieve
+                        accounts/response/payload
+                    - variable: SalesforceRetrieveaccountsMetadata
+                      $ref: '#/node-output/Salesforce Retrieve accounts/response'
+    assembly-2:
+      assembly:
+        execute:
+          - create-action:
+              name: Salesforce Create account
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-1'
+              map:
+                mappings:
+                  - BillingCity:
+                      template: '{{$Request.address.city}}'
+                  - BillingCountry:
+                      template: '{{$Request.address.country}}'
+                  - BillingStreet:
+                      template: '{{$Request.address.street}}'
+                  - Name:
+                      template: '{{$Request.name}}'
+                $map: 'http://ibm.com/appconnect/map/v1'
+                input:
+                  - variable: Request
+                    $ref: '#/trigger/payload'
+          - response:
+              name: response-1
+              reply-maps:
+                - title: account successfully created
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: SalesforceCreateaccount
+                        $ref: >-
+                          #/node-output/Salesforce Create
+                          account/response/payload
+                    mappings:
+                      - address:
+                          mappings:
+                            - city:
+                                template: '{{$Request.address.city}}'
+                            - country:
+                                template: '{{$Request.address.country}}'
+                            - street:
+                                template: '{{$Request.address.street}}'
+                      - id:
+                          template: '{{$SalesforceCreateaccount.Id}}'
+                      - name:
+                          template: '{{$Request.name}}'
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: SalesforceCreateaccount
+                      $ref: '#/node-output/Salesforce Create account/response/payload'
+    assembly-4:
+      assembly:
+        execute:
+          - upsert-action:
+              name: Salesforce Update or create account
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-4'
+              map:
+                mappings:
+                  - BillingCity:
+                      template: '{{$Request.address.city}}'
+                  - BillingCountry:
+                      template: '{{$Request.address.country}}'
+                  - BillingStreet:
+                      template: '{{$Request.address.street}}'
+                $map: 'http://ibm.com/appconnect/map/v1'
+                input:
+                  - variable: Request
+                    $ref: '#/trigger/payload'
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+              filter:
+                where:
+                  Name: '{{$api.where.name}}'
+                input:
+                  - variable: Request
+                    $ref: '#/trigger/payload'
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+          - response:
+              name: response-1
+              reply-maps:
+                - title: account successfully updated
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                      - variable: SalesforceUpdateorcreateaccount
+                        $ref: >-
+                          #/node-output/Salesforce Update or create
+                          account/response/payload
+                      - variable: SalesforceUpdateorcreateaccountMetadata
+                        $ref: >-
+                          #/node-output/Salesforce Update or create
+                          account/response
+                    mappings:
+                      - address:
+                          mappings:
+                            - city:
+                                template: >-
+                                  {{$SalesforceUpdateorcreateaccount.BillingCity}}
+                            - country:
+                                template: >-
+                                  {{$SalesforceUpdateorcreateaccount.BillingCountry}}
+                            - street:
+                                template: >-
+                                  {{$SalesforceUpdateorcreateaccount.BillingStreet}}
+                      - id:
+                          template: '{{$SalesforceUpdateorcreateaccount.Id}}'
+                      - name:
+                          template: '{{$SalesforceUpdateorcreateaccount.Name}}'
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+                    - variable: SalesforceUpdateorcreateaccount
+                      $ref: >-
+                        #/node-output/Salesforce Update or create
+                        account/response/payload
+                    - variable: SalesforceUpdateorcreateaccountMetadata
+                      $ref: >-
+                        #/node-output/Salesforce Update or create
+                        account/response
+    assembly-6:
+      assembly:
+        execute:
+          - delete-action:
+              name: Salesforce Delete account
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-6'
+              filter:
+                where:
+                  Id: '{{$api.id}}'
+                input:
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+          - response:
+              name: response-1
+              reply-maps:
+                - title: account successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                      - variable: SalesforceDeleteaccount
+                        $ref: >-
+                          #/node-output/Salesforce Delete
+                          account/response/payload
+                      - variable: SalesforceDeleteaccountMetadata
+                        $ref: '#/node-output/Salesforce Delete account/response'
+                    mappings:
+                      - id:
+                          template: '{{$SalesforceDeleteaccount.Id}}'
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+                    - variable: SalesforceDeleteaccount
+                      $ref: '#/node-output/Salesforce Delete account/response/payload'
+                    - variable: SalesforceDeleteaccountMetadata
+                      $ref: '#/node-output/Salesforce Delete account/response'
+    assembly-3:
+      assembly:
+        execute:
+          - update-action:
+              name: Salesforce Update account
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-3'
+              map:
+                mappings:
+                  - BillingCity:
+                      template: '{{$Request.address.city}}'
+                  - BillingCountry:
+                      template: '{{$Request.address.country}}'
+                  - BillingStreet:
+                      template: '{{$Request.address.street}}'
+                  - Name:
+                      template: '{{$Request.name}}'
+                $map: 'http://ibm.com/appconnect/map/v1'
+                input:
+                  - variable: Request
+                    $ref: '#/trigger/payload'
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+              filter:
+                where:
+                  Id: '{{$api.id}}'
+                input:
+                  - variable: Request
+                    $ref: '#/trigger/payload'
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+              allow-empty-output: false
+          - response:
+              name: response-1
+              reply-maps:
+                - title: account successfully replaced or created
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                      - variable: SalesforceUpdateaccount
+                        $ref: >-
+                          #/node-output/Salesforce Update
+                          account/response/payload
+                      - variable: SalesforceUpdateaccountMetadata
+                        $ref: '#/node-output/Salesforce Update account/response'
+                    mappings:
+                      - address:
+                          mappings:
+                            - city:
+                                template: '{{$Request.address.city}}'
+                            - country:
+                                template: '{{$Request.address.country}}'
+                            - street:
+                                template: '{{$Request.address.street}}'
+                      - id:
+                          template: '{{$SalesforceUpdateaccount.Id}}'
+                      - name:
+                          template: '{{$Request.name}}'
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+                    - variable: SalesforceUpdateaccount
+                      $ref: '#/node-output/Salesforce Update account/response/payload'
+                    - variable: SalesforceUpdateaccountMetadata
+                      $ref: '#/node-output/Salesforce Update account/response'
+    assembly-5:
+      assembly:
+        execute:
+          - retrieve-action:
+              name: Salesforce Retrieve accounts
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-7'
+              filter:
+                where:
+                  Name: '{{$api.where.name}}'
+                input:
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+                limit: 1000
+              allow-truncation: true
+              pagination-type: TOKEN
+              allow-empty-output: true
+          - response:
+              name: response-1
+              reply-maps:
+                - title: account successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                      - variable: SalesforceRetrieveaccounts
+                        $ref: >-
+                          #/node-output/Salesforce Retrieve
+                          accounts/response/payload
+                      - variable: SalesforceRetrieveaccountsMetadata
+                        $ref: '#/node-output/Salesforce Retrieve accounts/response'
+                    mappings:
+                      - account:
+                          foreach:
+                            input: '$SalesforceRetrieveaccounts '
+                            iterator: accountItem
+                            mappings:
+                              - address:
+                                  mappings:
+                                    - city:
+                                        template: '{{$accountItem.BillingCity}}'
+                                    - country:
+                                        template: '{{$accountItem.BillingCountry}}'
+                                    - street:
+                                        template: '{{$accountItem.BillingStreet}}'
+                              - id:
+                                  template: '{{$accountItem.Id}}'
+                              - name:
+                                  template: '{{$accountItem.Name}}'
+                      - next:
+                          mappings:
+                            - limit:
+                                expression: '$api.limit '
+                            - skip:
+                                expression: '$api.skip '
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+                    - variable: SalesforceRetrieveaccounts
+                      $ref: >-
+                        #/node-output/Salesforce Retrieve
+                        accounts/response/payload
+                    - variable: SalesforceRetrieveaccountsMetadata
+                      $ref: '#/node-output/Salesforce Retrieve accounts/response'
+    assembly-7:
+      assembly:
+        execute:
+          - create-action:
+              name: Salesforce Create lead
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-5'
+              map:
+                mappings:
+                  - Company:
+                      template: '{{$Request.Company}}'
+                  - Email:
+                      template: '{{$Request.Email}}'
+                  - FirstName:
+                      template: '{{$Request.FirstName}}'
+                  - LastName:
+                      template: '{{$Request.LastName}}'
+                $map: 'http://ibm.com/appconnect/map/v1'
+                input:
+                  - variable: Request
+                    $ref: '#/trigger/payload'
+          - response:
+              name: response-1
+              reply-maps:
+                - title: lead successfully created
+                  status-code: '201'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: SalesforceCreatelead
+                        $ref: '#/node-output/Salesforce Create lead/response/payload'
+                    mappings:
+                      - Id:
+                          template: '{{$SalesforceCreatelead.Id}}'
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: SalesforceCreatelead
+                      $ref: '#/node-output/Salesforce Create lead/response/payload'
+    assembly-8:
+      assembly:
+        execute:
+          - retrieve-action:
+              name: Salesforce Retrieve leads
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-8'
+              filter:
+                where:
+                  Id: '{{$api.Id}}'
+                input:
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+                limit: 1
+              allow-truncation: true
+              pagination-type: TOKEN
+              allow-empty-output: false
+          - response:
+              name: response-1
+              reply-maps:
+                - title: lead successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                      - variable: SalesforceRetrieveleads
+                        $ref: >-
+                          #/node-output/Salesforce Retrieve
+                          leads/response/payload
+                      - variable: SalesforceRetrieveleadsMetadata
+                        $ref: '#/node-output/Salesforce Retrieve leads/response'
+                    mappings:
+                      - Company:
+                          template: '{{$SalesforceRetrieveleads[0].Company}}'
+                      - Email:
+                          template: '{{$SalesforceRetrieveleads[0].Email}}'
+                      - FirstName:
+                          template: '{{$SalesforceRetrieveleads[0].FirstName}}'
+                      - Id:
+                          template: '{{$SalesforceRetrieveleads[0].Id}}'
+                      - LastName:
+                          template: '{{$SalesforceRetrieveleads[0].LastName}}'
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+                    - variable: SalesforceRetrieveleads
+                      $ref: '#/node-output/Salesforce Retrieve leads/response/payload'
+                    - variable: SalesforceRetrieveleadsMetadata
+                      $ref: '#/node-output/Salesforce Retrieve leads/response'
+  name: salesforce
+models:
+  account:
+    name: account
+    properties:
+      id:
+        required: false
+        id: true
+        type: string
+      name:
+        required: false
+        id: false
+        type: string
+      address:
+        required: false
+        id: false
+        type:
+          street:
+            required: false
+            id: false
+            type: string
+          city:
+            required: false
+            id: false
+            type: string
+          country:
+            required: false
+            id: false
+            type: string
+    plural: account
+    description: ' '
+    operations:
+      retrieve: '#/integration/assemblies/assembly-1'
+      create: '#/integration/assemblies/assembly-2'
+      upsertwithwhere: '#/integration/assemblies/assembly-4'
+      del: '#/integration/assemblies/assembly-6'
+      replaceorcreate: '#/integration/assemblies/assembly-3'
+      retrieveall: '#/integration/assemblies/assembly-5'
+    interactions:
+      upsertwithwhere:
+        filterSupport:
+          queryablefields:
+            - name
+      retrieveall:
+        pagination-type: SKIP_LIMIT
+        filterSupport:
+          queryablefields:
+            - name
+        isVisible: true
+    methods:
+      del:
+        name: del
+        display:
+          name: Delete account
+        accessType: WRITE
+        accepts:
+          - arg: id
+            type: string
+            http:
+              source: path
+            required: true
+        returns:
+          arg: data
+          type: account
+          root: true
+        http:
+          verb: DELETE
+          path: '/:id/del'
+  lead:
+    name: lead
+    properties:
+      Id:
+        required: false
+        id: true
+        type: string
+      Company:
+        required: false
+        id: false
+        type: string
+      Email:
+        required: false
+        id: false
+        type: string
+      FirstName:
+        required: false
+        id: false
+        type: string
+      LastName:
+        required: false
+        id: false
+        type: string
+    plural: lead
+    description: ' '
+    operations:
+      create: '#/integration/assemblies/assembly-7'
+      retrieve: '#/integration/assemblies/assembly-8'

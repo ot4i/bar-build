@@ -1,0 +1,75 @@
+$integration: 'http://ibm.com/appconnect/integration/v2/integrationFile'
+integration:
+  type: api
+  trigger-interfaces:
+    trigger-interface-1:
+      triggers:
+        retrieveApiUsingCallableFlow:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-1'
+          input-context:
+            data: apiUsingCallableFlow
+          output-context:
+            data: apiUsingCallableFlow
+      options:
+        resources:
+          - business-object: apiUsingCallableFlow
+            model:
+              $ref: '#/models/apiUsingCallableFlow'
+            triggers:
+              retrieve: retrieveApiUsingCallableFlow
+      type: api-trigger
+  action-interfaces:
+    action-interface-1:
+      type: api-action
+      business-object: request
+      connector-type: iiboc
+      account-name: Account 1
+      actions:
+        INVOKEACTION: {}
+  assemblies:
+    assembly-1:
+      assembly:
+        execute:
+          - custom-action:
+              name: Callable flow Invoke
+              target:
+                $ref: '#/integration/action-interfaces/action-interface-1'
+              action: INVOKEACTION
+              map:
+                $map: 'http://ibm.com/appconnect/map/v1'
+                input:
+                  - variable: api
+                    $ref: '#/trigger/api/parameters'
+                mappings: []
+          - response:
+              name: response-1
+              reply-maps:
+                - title: apiUsingCallableFlow successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings:
+                      - name:
+                          template: '{{$api.name}}'
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+        tags:
+          - incomplete
+  name: apiUsingCallableFlow
+models:
+  apiUsingCallableFlow:
+    name: apiUsingCallableFlow
+    properties:
+      name:
+        required: false
+        id: true
+        type: string
+    plural: apiUsingCallableFlow
+    description: ' '
+    operations:
+      retrieve: '#/integration/assemblies/assembly-1'

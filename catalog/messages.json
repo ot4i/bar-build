@@ -1,0 +1,51 @@
+{
+  "dfs0001": {
+    "message": "Failed to refresh a JWT (JSON Web Token) that's used to call the connector service. Another refresh will be attempted in 10 minutes.",
+    "action": "Check the logs for details.",
+    "detail": "",
+    "url": "",
+    "namedInserts": {}
+  },
+  "dfs0002": {
+    "message": "We can't export the flow as a BAR file because it contains the following unsupported action or toolbox nodes: {0}",
+    "action": "Remove the listed nodes from the flow and export it again. Review https://ibm.biz/acdesignerflow-ace in the App Connect documentation for details about the supported components in a flow.",
+    "detail": "Not all actions or toolbox utilities are supported when running a flow in an integration server.",
+    "url": "",
+    "namedInserts": {}
+  },
+  "dfs0003": {
+    "message": "We can't export the flow as a BAR file because it appears to be incomplete.",
+    "action": "Make sure that the flow can be started successfully and export it again.",
+    "detail": "Only completed flows can be successfully exported and run.",
+    "url": "",
+    "namedInserts": {}
+  },
+  "dfs0004": {
+    "message": "A connection was established via the {0} \"{1}\" account on premises.",
+    "action": "",
+    "detail": "",
+    "url": "",
+    "namedInserts": {}
+  },
+  "dfs0005": {
+    "message": "A connection was established via the {0} \"{1}\" account in IBM App Connect on IBM Cloud.",
+    "action": "",
+    "detail": "",
+    "url": "",
+    "namedInserts": {}
+  },
+  "dfs0006": {
+    "message": "We can't connect to \"{0}\" because a local account isn't available.",
+    "action": "Run the flow in an environment where connections to IBM App Connect on IBM Cloud are enabled.",
+    "detail": "Not all accounts are available when running locally.",
+    "url": "",
+    "namedInserts": {}
+  },
+  "dfs0007": {
+    "message": "No local accounts are configured for \"{0}\".",
+    "action": "Create a secret that stores the account connection details for \"{0}\".",
+    "detail": "A secret containing connection details must be configured when using a connector that is running locally.",
+    "url": "",
+    "namedInserts": {}
+  }
+}

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?><Broker>
+<CompiledApplication>
+<ConfigurableProperty uri="startMode"/>
+</CompiledApplication>
+<CompiledMessageFlow name="account_findById" type="subflow">
+<ConfigurableProperty uri="account_findById#connectorServiceUrl"/>
+<ConfigurableProperty uri="account_findById#connectorServiceInstanceId"/>
+<ConfigurableProperty uri="account_findById#Compute.dataSource"/>
+<ConfigurableProperty uri="account_findById#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="account_findById#Compute.validateMaster"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_findById#HTTP Request.URLSpecifier"/>
+<ConfigurableProperty uri="account_findById#HTTP Request.timeoutForServer"/>
+<ConfigurableProperty uri="account_findById#HTTP Request.httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_findById#HTTP Request.httpVersion"/>
+<ConfigurableProperty uri="account_findById#HTTP Request.enableKeepAlive"/>
+<ConfigurableProperty uri="account_findById#HTTP Request.requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_findById#HTTP Request.protocol"/>
+<ConfigurableProperty uri="account_findById#HTTP Request.allowedCiphers"/>
+<ConfigurableProperty uri="account_findById#HTTP Request.hostnameChecking"/>
+<ConfigurableProperty uri="account_findById#HTTP Request.keyAlias"/>
+<ConfigurableProperty uri="account_findById#HTTP Request.enableCRLCheck"/>
+<ConfigurableProperty uri="account_findById#HTTP Request.acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_findById#HTTP Request.validateMaster"/>
+<ConfigurableProperty override="{salesforcePolicyProject}:salesforce" uri="account_findById#HTTP Request.securityProfileName"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_findById#HTTP Request (no auth).URLSpecifier"/>
+<ConfigurableProperty uri="account_findById#HTTP Request (no auth).timeoutForServer"/>
+<ConfigurableProperty uri="account_findById#HTTP Request (no auth).httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_findById#HTTP Request (no auth).httpVersion"/>
+<ConfigurableProperty uri="account_findById#HTTP Request (no auth).enableKeepAlive"/>
+<ConfigurableProperty uri="account_findById#HTTP Request (no auth).requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_findById#HTTP Request (no auth).protocol"/>
+<ConfigurableProperty uri="account_findById#HTTP Request (no auth).allowedCiphers"/>
+<ConfigurableProperty uri="account_findById#HTTP Request (no auth).hostnameChecking"/>
+<ConfigurableProperty uri="account_findById#HTTP Request (no auth).keyAlias"/>
+<ConfigurableProperty uri="account_findById#HTTP Request (no auth).enableCRLCheck"/>
+<ConfigurableProperty uri="account_findById#HTTP Request (no auth).acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_findById#HTTP Request (no auth).validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="account_patchAttributes" type="subflow">
+<ConfigurableProperty uri="account_patchAttributes#connectorServiceUrl"/>
+<ConfigurableProperty uri="account_patchAttributes#connectorServiceInstanceId"/>
+<ConfigurableProperty uri="account_patchAttributes#Compute.dataSource"/>
+<ConfigurableProperty uri="account_patchAttributes#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="account_patchAttributes#Compute.validateMaster"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_patchAttributes#HTTP Request.URLSpecifier"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request.timeoutForServer"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request.httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_patchAttributes#HTTP Request.httpVersion"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request.enableKeepAlive"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request.requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_patchAttributes#HTTP Request.protocol"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request.allowedCiphers"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request.hostnameChecking"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request.keyAlias"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request.enableCRLCheck"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request.acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request.validateMaster"/>
+<ConfigurableProperty override="{salesforcePolicyProject}:salesforce" uri="account_patchAttributes#HTTP Request.securityProfileName"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_patchAttributes#HTTP Request (no auth).URLSpecifier"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request (no auth).timeoutForServer"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request (no auth).httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_patchAttributes#HTTP Request (no auth).httpVersion"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request (no auth).enableKeepAlive"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request (no auth).requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_patchAttributes#HTTP Request (no auth).protocol"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request (no auth).allowedCiphers"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request (no auth).hostnameChecking"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request (no auth).keyAlias"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request (no auth).enableCRLCheck"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request (no auth).acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_patchAttributes#HTTP Request (no auth).validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="account_create" type="subflow">
+<ConfigurableProperty uri="account_create#connectorServiceUrl"/>
+<ConfigurableProperty uri="account_create#connectorServiceInstanceId"/>
+<ConfigurableProperty uri="account_create#Compute.dataSource"/>
+<ConfigurableProperty uri="account_create#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="account_create#Compute.validateMaster"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_create#HTTP Request.URLSpecifier"/>
+<ConfigurableProperty uri="account_create#HTTP Request.timeoutForServer"/>
+<ConfigurableProperty uri="account_create#HTTP Request.httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_create#HTTP Request.httpVersion"/>
+<ConfigurableProperty uri="account_create#HTTP Request.enableKeepAlive"/>
+<ConfigurableProperty uri="account_create#HTTP Request.requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_create#HTTP Request.protocol"/>
+<ConfigurableProperty uri="account_create#HTTP Request.allowedCiphers"/>
+<ConfigurableProperty uri="account_create#HTTP Request.hostnameChecking"/>
+<ConfigurableProperty uri="account_create#HTTP Request.keyAlias"/>
+<ConfigurableProperty uri="account_create#HTTP Request.enableCRLCheck"/>
+<ConfigurableProperty uri="account_create#HTTP Request.acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_create#HTTP Request.validateMaster"/>
+<ConfigurableProperty override="{salesforcePolicyProject}:salesforce" uri="account_create#HTTP Request.securityProfileName"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_create#HTTP Request (no auth).URLSpecifier"/>
+<ConfigurableProperty uri="account_create#HTTP Request (no auth).timeoutForServer"/>
+<ConfigurableProperty uri="account_create#HTTP Request (no auth).httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_create#HTTP Request (no auth).httpVersion"/>
+<ConfigurableProperty uri="account_create#HTTP Request (no auth).enableKeepAlive"/>
+<ConfigurableProperty uri="account_create#HTTP Request (no auth).requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_create#HTTP Request (no auth).protocol"/>
+<ConfigurableProperty uri="account_create#HTTP Request (no auth).allowedCiphers"/>
+<ConfigurableProperty uri="account_create#HTTP Request (no auth).hostnameChecking"/>
+<ConfigurableProperty uri="account_create#HTTP Request (no auth).keyAlias"/>
+<ConfigurableProperty uri="account_create#HTTP Request (no auth).enableCRLCheck"/>
+<ConfigurableProperty uri="account_create#HTTP Request (no auth).acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_create#HTTP Request (no auth).validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="account_find" type="subflow">
+<ConfigurableProperty uri="account_find#connectorServiceUrl"/>
+<ConfigurableProperty uri="account_find#connectorServiceInstanceId"/>
+<ConfigurableProperty uri="account_find#Compute.dataSource"/>
+<ConfigurableProperty uri="account_find#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="account_find#Compute.validateMaster"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_find#HTTP Request.URLSpecifier"/>
+<ConfigurableProperty uri="account_find#HTTP Request.timeoutForServer"/>
+<ConfigurableProperty uri="account_find#HTTP Request.httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_find#HTTP Request.httpVersion"/>
+<ConfigurableProperty uri="account_find#HTTP Request.enableKeepAlive"/>
+<ConfigurableProperty uri="account_find#HTTP Request.requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_find#HTTP Request.protocol"/>
+<ConfigurableProperty uri="account_find#HTTP Request.allowedCiphers"/>
+<ConfigurableProperty uri="account_find#HTTP Request.hostnameChecking"/>
+<ConfigurableProperty uri="account_find#HTTP Request.keyAlias"/>
+<ConfigurableProperty uri="account_find#HTTP Request.enableCRLCheck"/>
+<ConfigurableProperty uri="account_find#HTTP Request.acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_find#HTTP Request.validateMaster"/>
+<ConfigurableProperty override="{salesforcePolicyProject}:salesforce" uri="account_find#HTTP Request.securityProfileName"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_find#HTTP Request (no auth).URLSpecifier"/>
+<ConfigurableProperty uri="account_find#HTTP Request (no auth).timeoutForServer"/>
+<ConfigurableProperty uri="account_find#HTTP Request (no auth).httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_find#HTTP Request (no auth).httpVersion"/>
+<ConfigurableProperty uri="account_find#HTTP Request (no auth).enableKeepAlive"/>
+<ConfigurableProperty uri="account_find#HTTP Request (no auth).requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_find#HTTP Request (no auth).protocol"/>
+<ConfigurableProperty uri="account_find#HTTP Request (no auth).allowedCiphers"/>
+<ConfigurableProperty uri="account_find#HTTP Request (no auth).hostnameChecking"/>
+<ConfigurableProperty uri="account_find#HTTP Request (no auth).keyAlias"/>
+<ConfigurableProperty uri="account_find#HTTP Request (no auth).enableCRLCheck"/>
+<ConfigurableProperty uri="account_find#HTTP Request (no auth).acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_find#HTTP Request (no auth).validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="account_upsertWithWhere" type="subflow">
+<ConfigurableProperty uri="account_upsertWithWhere#connectorServiceUrl"/>
+<ConfigurableProperty uri="account_upsertWithWhere#connectorServiceInstanceId"/>
+<ConfigurableProperty uri="account_upsertWithWhere#Compute.dataSource"/>
+<ConfigurableProperty uri="account_upsertWithWhere#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="account_upsertWithWhere#Compute.validateMaster"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_upsertWithWhere#HTTP Request.URLSpecifier"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request.timeoutForServer"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request.httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_upsertWithWhere#HTTP Request.httpVersion"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request.enableKeepAlive"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request.requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_upsertWithWhere#HTTP Request.protocol"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request.allowedCiphers"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request.hostnameChecking"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request.keyAlias"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request.enableCRLCheck"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request.acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request.validateMaster"/>
+<ConfigurableProperty override="{salesforcePolicyProject}:salesforce" uri="account_upsertWithWhere#HTTP Request.securityProfileName"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_upsertWithWhere#HTTP Request (no auth).URLSpecifier"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request (no auth).timeoutForServer"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request (no auth).httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_upsertWithWhere#HTTP Request (no auth).httpVersion"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request (no auth).enableKeepAlive"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request (no auth).requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_upsertWithWhere#HTTP Request (no auth).protocol"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request (no auth).allowedCiphers"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request (no auth).hostnameChecking"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request (no auth).keyAlias"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request (no auth).enableCRLCheck"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request (no auth).acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_upsertWithWhere#HTTP Request (no auth).validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="account_del" type="subflow">
+<ConfigurableProperty uri="account_del#connectorServiceUrl"/>
+<ConfigurableProperty uri="account_del#connectorServiceInstanceId"/>
+<ConfigurableProperty uri="account_del#Compute.dataSource"/>
+<ConfigurableProperty uri="account_del#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="account_del#Compute.validateMaster"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_del#HTTP Request.URLSpecifier"/>
+<ConfigurableProperty uri="account_del#HTTP Request.timeoutForServer"/>
+<ConfigurableProperty uri="account_del#HTTP Request.httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_del#HTTP Request.httpVersion"/>
+<ConfigurableProperty uri="account_del#HTTP Request.enableKeepAlive"/>
+<ConfigurableProperty uri="account_del#HTTP Request.requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_del#HTTP Request.protocol"/>
+<ConfigurableProperty uri="account_del#HTTP Request.allowedCiphers"/>
+<ConfigurableProperty uri="account_del#HTTP Request.hostnameChecking"/>
+<ConfigurableProperty uri="account_del#HTTP Request.keyAlias"/>
+<ConfigurableProperty uri="account_del#HTTP Request.enableCRLCheck"/>
+<ConfigurableProperty uri="account_del#HTTP Request.acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_del#HTTP Request.validateMaster"/>
+<ConfigurableProperty override="{salesforcePolicyProject}:salesforce" uri="account_del#HTTP Request.securityProfileName"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="account_del#HTTP Request (no auth).URLSpecifier"/>
+<ConfigurableProperty uri="account_del#HTTP Request (no auth).timeoutForServer"/>
+<ConfigurableProperty uri="account_del#HTTP Request (no auth).httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="account_del#HTTP Request (no auth).httpVersion"/>
+<ConfigurableProperty uri="account_del#HTTP Request (no auth).enableKeepAlive"/>
+<ConfigurableProperty uri="account_del#HTTP Request (no auth).requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="account_del#HTTP Request (no auth).protocol"/>
+<ConfigurableProperty uri="account_del#HTTP Request (no auth).allowedCiphers"/>
+<ConfigurableProperty uri="account_del#HTTP Request (no auth).hostnameChecking"/>
+<ConfigurableProperty uri="account_del#HTTP Request (no auth).keyAlias"/>
+<ConfigurableProperty uri="account_del#HTTP Request (no auth).enableCRLCheck"/>
+<ConfigurableProperty uri="account_del#HTTP Request (no auth).acceptCompressedResponses"/>
+<ConfigurableProperty uri="account_del#HTTP Request (no auth).validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="lead_create" type="subflow">
+<ConfigurableProperty uri="lead_create#connectorServiceUrl"/>
+<ConfigurableProperty uri="lead_create#connectorServiceInstanceId"/>
+<ConfigurableProperty uri="lead_create#Compute.dataSource"/>
+<ConfigurableProperty uri="lead_create#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="lead_create#Compute.validateMaster"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="lead_create#HTTP Request.URLSpecifier"/>
+<ConfigurableProperty uri="lead_create#HTTP Request.timeoutForServer"/>
+<ConfigurableProperty uri="lead_create#HTTP Request.httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="lead_create#HTTP Request.httpVersion"/>
+<ConfigurableProperty uri="lead_create#HTTP Request.enableKeepAlive"/>
+<ConfigurableProperty uri="lead_create#HTTP Request.requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="lead_create#HTTP Request.protocol"/>
+<ConfigurableProperty uri="lead_create#HTTP Request.allowedCiphers"/>
+<ConfigurableProperty uri="lead_create#HTTP Request.hostnameChecking"/>
+<ConfigurableProperty uri="lead_create#HTTP Request.keyAlias"/>
+<ConfigurableProperty uri="lead_create#HTTP Request.enableCRLCheck"/>
+<ConfigurableProperty uri="lead_create#HTTP Request.acceptCompressedResponses"/>
+<ConfigurableProperty uri="lead_create#HTTP Request.validateMaster"/>
+<ConfigurableProperty override="{salesforcePolicyProject}:salesforce" uri="lead_create#HTTP Request.securityProfileName"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="lead_create#HTTP Request (no auth).URLSpecifier"/>
+<ConfigurableProperty uri="lead_create#HTTP Request (no auth).timeoutForServer"/>
+<ConfigurableProperty uri="lead_create#HTTP Request (no auth).httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="lead_create#HTTP Request (no auth).httpVersion"/>
+<ConfigurableProperty uri="lead_create#HTTP Request (no auth).enableKeepAlive"/>
+<ConfigurableProperty uri="lead_create#HTTP Request (no auth).requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="lead_create#HTTP Request (no auth).protocol"/>
+<ConfigurableProperty uri="lead_create#HTTP Request (no auth).allowedCiphers"/>
+<ConfigurableProperty uri="lead_create#HTTP Request (no auth).hostnameChecking"/>
+<ConfigurableProperty uri="lead_create#HTTP Request (no auth).keyAlias"/>
+<ConfigurableProperty uri="lead_create#HTTP Request (no auth).enableCRLCheck"/>
+<ConfigurableProperty uri="lead_create#HTTP Request (no auth).acceptCompressedResponses"/>
+<ConfigurableProperty uri="lead_create#HTTP Request (no auth).validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="lead_findById" type="subflow">
+<ConfigurableProperty uri="lead_findById#connectorServiceUrl"/>
+<ConfigurableProperty uri="lead_findById#connectorServiceInstanceId"/>
+<ConfigurableProperty uri="lead_findById#Compute.dataSource"/>
+<ConfigurableProperty uri="lead_findById#Compute.connectDatasourceBeforeFlowStarts"/>
+<ConfigurableProperty uri="lead_findById#Compute.validateMaster"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="lead_findById#HTTP Request.URLSpecifier"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request.timeoutForServer"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request.httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="lead_findById#HTTP Request.httpVersion"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request.enableKeepAlive"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request.requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="lead_findById#HTTP Request.protocol"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request.allowedCiphers"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request.hostnameChecking"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request.keyAlias"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request.enableCRLCheck"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request.acceptCompressedResponses"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request.validateMaster"/>
+<ConfigurableProperty override="{salesforcePolicyProject}:salesforce" uri="lead_findById#HTTP Request.securityProfileName"/>
+<ConfigurableProperty override="http+unix://%2Ftmp%2Flmap.socket" uri="lead_findById#HTTP Request (no auth).URLSpecifier"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request (no auth).timeoutForServer"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request (no auth).httpProxyLocation"/>
+<ConfigurableProperty override="1.1" uri="lead_findById#HTTP Request (no auth).httpVersion"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request (no auth).enableKeepAlive"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request (no auth).requestCompressionType"/>
+<ConfigurableProperty override="TLS" uri="lead_findById#HTTP Request (no auth).protocol"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request (no auth).allowedCiphers"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request (no auth).hostnameChecking"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request (no auth).keyAlias"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request (no auth).enableCRLCheck"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request (no auth).acceptCompressedResponses"/>
+<ConfigurableProperty uri="lead_findById#HTTP Request (no auth).validateMaster"/>
+</CompiledMessageFlow>
+<CompiledMessageFlow name="gen.salesforce">
+<ConfigurableProperty override="3" uri="gen.salesforce#additionalInstances"/>
+<ConfigurableProperty uri="gen.salesforce#notificationThresholdMsgsPerSec"/>
+<ConfigurableProperty uri="gen.salesforce#maximumRateMsgsPerSec"/>
+<ConfigurableProperty uri="gen.salesforce#processingTimeoutSec"/>
+<ConfigurableProperty uri="gen.salesforce#processingTimeoutAction"/>
+<ConfigurableProperty uri="gen.salesforce#wlmPolicy"/>
+<ConfigurableProperty uri="gen.salesforce#commitCount"/>
+<ConfigurableProperty uri="gen.salesforce#commitInterval"/>
+<ConfigurableProperty uri="gen.salesforce#coordinatedTransaction"/>
+<ConfigurableProperty uri="gen.salesforce#consumerPolicySet"/>
+<ConfigurableProperty uri="gen.salesforce#providerPolicySet"/>
+<ConfigurableProperty uri="gen.salesforce#consumerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.salesforce#providerPolicySetBindings"/>
+<ConfigurableProperty uri="gen.salesforce#securityProfileName"/>
+<ConfigurableProperty uri="gen.salesforce#monitoringProfile"/>
+<ConfigurableProperty uri="gen.salesforce#startMode"/>
+<ConfigurableProperty uri="gen.salesforce#startInstancesWhenFlowStarts"/>
+<ConfigurableProperty override="fakeCSInstanceId" uri="gen.salesforce#connectorServiceInstanceId"/>
+<ConfigurableProperty override="https://fakeCS.ibm.com" uri="gen.salesforce#connectorServiceUrl"/>
+<ConfigurableProperty override="/salesforce*" uri="gen.salesforce#HTTP Input.URLSpecifier"/>
+<ConfigurableProperty uri="gen.salesforce#HTTP Input.useHTTPS"/>
+<ConfigurableProperty uri="gen.salesforce#HTTP Input.decompressInputMessage"/>
+<ConfigurableProperty uri="gen.salesforce#HTTP Input.timeoutForClient"/>
+<ConfigurableProperty override="HTML" uri="gen.salesforce#HTTP Input.faultFormat"/>
+<ConfigurableProperty uri="gen.salesforce#HTTP Input.validateMaster"/>
+<ConfigurableProperty uri="gen.salesforce#HTTP Input.securityProfileName"/>
+<ConfigurableProperty uri="gen.salesforce#HTTP Reply.validateMaster"/>
+</CompiledMessageFlow>
+</Broker>

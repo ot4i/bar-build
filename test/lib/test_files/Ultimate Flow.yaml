@@ -1,0 +1,1601 @@
+$integration: 'http://ibm.com/appconnect/integration/v2/integrationFile'
+integration:
+  type: api
+  trigger-interfaces:
+    trigger-interface-1:
+      triggers:
+        createModel1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-1'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        retrieveModel1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-2'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        retrieveallModel1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-3'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        retrieveModel2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-4'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        retrieveallModel2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-5'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        upsertwithwhereModel2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-6'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        replaceorcreateModel2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-7'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        retrieveallModel3:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-8'
+          input-context:
+            data: model3
+          output-context:
+            data: model3
+        upsertwithwhereModel3:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-10'
+          input-context:
+            data: model3
+          output-context:
+            data: model3
+        upsertwithwhereModel1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-9'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        replaceorcreateModel1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-11'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        customget1Model3:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-12'
+          input-context:
+            data: model3
+          output-context:
+            data: model1
+        customget2Model3:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-13'
+          input-context:
+            data: model3
+          output-context:
+            data: model1
+        customget3Model3:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-14'
+          input-context:
+            data: model3
+          output-context:
+            data: model1
+        customget4Model3:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-15'
+          input-context:
+            data: model3
+          output-context:
+            data: model1
+        custompost1Model2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-16'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        custompost2Model2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-17'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        custompost3Model2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-18'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        custompost4Model2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-19'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        customput1Model1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-20'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        customput2Model1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-21'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        customput3Model1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-22'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        customput4Model1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-23'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        customdelete1Model3:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-24'
+          input-context:
+            data: model3
+          output-context:
+            data: model3
+        customdelete2Model3:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-25'
+          input-context:
+            data: model3
+          output-context:
+            data: model3
+        customdelete3Model3:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-26'
+          input-context:
+            data: model3
+          output-context:
+            data: model3
+        customdelete4Model3:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-27'
+          input-context:
+            data: model3
+          output-context:
+            data: model3
+        custompatch1Model2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-28'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        custompatch2Model2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-29'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        custompatch3Model2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-30'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        custompatch4Model2:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-31'
+          input-context:
+            data: model2
+          output-context:
+            data: model2
+        customhead1Model1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-32'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        customhead2Model1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-33'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        customhead3Model1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-34'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+        customhead4Model1:
+          assembly:
+            $ref: '#/integration/assemblies/assembly-35'
+          input-context:
+            data: model1
+          output-context:
+            data: model1
+      options:
+        resources:
+          - business-object: model1
+            model:
+              $ref: '#/models/model1'
+            triggers:
+              create: createModel1
+              retrieve: retrieveModel1
+              retrieveall: retrieveallModel1
+              upsertwithwhere: upsertwithwhereModel1
+              replaceorcreate: replaceorcreateModel1
+              customput1: customput1Model1
+              customput2: customput2Model1
+              customput3: customput3Model1
+              customput4: customput4Model1
+              customhead1: customhead1Model1
+              customhead2: customhead2Model1
+              customhead3: customhead3Model1
+              customhead4: customhead4Model1
+          - business-object: model2
+            model:
+              $ref: '#/models/model2'
+            triggers:
+              retrieve: retrieveModel2
+              retrieveall: retrieveallModel2
+              upsertwithwhere: upsertwithwhereModel2
+              replaceorcreate: replaceorcreateModel2
+              custompost1: custompost1Model2
+              custompost2: custompost2Model2
+              custompost3: custompost3Model2
+              custompost4: custompost4Model2
+              custompatch1: custompatch1Model2
+              custompatch2: custompatch2Model2
+              custompatch3: custompatch3Model2
+              custompatch4: custompatch4Model2
+          - business-object: model3
+            model:
+              $ref: '#/models/model3'
+            triggers:
+              retrieveall: retrieveallModel3
+              upsertwithwhere: upsertwithwhereModel3
+              customget1: customget1Model3
+              customget2: customget2Model3
+              customget3: customget3Model3
+              customget4: customget4Model3
+              customdelete1: customdelete1Model3
+              customdelete2: customdelete2Model3
+              customdelete3: customdelete3Model3
+              customdelete4: customdelete4Model3
+      type: api-trigger
+  action-interfaces: {}
+  assemblies:
+    assembly-1:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully created
+                  status-code: '201'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                    mappings:
+                      - string:
+                          template: '{{$Request.nested_objects.object.string}}'
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+    assembly-2:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-3:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-4:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-5:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-6:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully updated
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-7:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully replaced or created
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-8:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model3 successfully retrieved
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-10:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model3 successfully updated
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-9:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully updated
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-11:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully replaced or created
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-12:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model3 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-13:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model3 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-14:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model3 successfully add custom operation
+                  status-code: 200
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    mappings: []
+                  input: []
+    assembly-15:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model3 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-16:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-17:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-18:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-19:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+    assembly-20:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-21:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-22:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+    assembly-23:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+    assembly-24:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model3 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-25:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model3 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-26:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model3 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-27:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model3 successfully add custom operation
+                  status-code: 200
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    mappings: []
+                  input: []
+    assembly-28:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-29:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-30:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-31:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model2 successfully add custom operation
+                  status-code: '200'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: Request
+                        $ref: '#/trigger/payload'
+                    mappings: []
+                  input:
+                    - variable: Request
+                      $ref: '#/trigger/payload'
+    assembly-32:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully add custom operation
+                  status-code: '204'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-33:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully add custom operation
+                  status-code: '204'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-34:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully add custom operation
+                  status-code: '204'
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    input:
+                      - variable: api
+                        $ref: '#/trigger/api/parameters'
+                    mappings: []
+                  input:
+                    - variable: api
+                      $ref: '#/trigger/api/parameters'
+    assembly-35:
+      assembly:
+        execute:
+          - response:
+              name: response-1
+              reply-maps:
+                - title: model1 successfully add custom operation
+                  status-code: 204
+                  map:
+                    $map: 'http://ibm.com/appconnect/map/v1'
+                    mappings: []
+                  input: []
+  name: Ultimate Flow
+models:
+  model1:
+    name: model1
+    properties:
+      string_property:
+        required: false
+        id: true
+        type: string
+      number_property:
+        required: false
+        id: false
+        type: number
+      date_property:
+        required: false
+        id: false
+        type: date
+      boolean_property:
+        required: false
+        id: false
+        type: boolean
+      empty_object_property:
+        required: false
+        id: false
+        type: {}
+      object_property:
+        required: false
+        id: false
+        type:
+          nested_object_property:
+            required: false
+            id: false
+            type:
+              nested_string_property:
+                required: false
+                id: false
+                type: string
+          nested_number_property:
+            required: false
+            id: false
+            type: number
+          nested_date_property:
+            required: false
+            id: false
+            type: date
+      array_property:
+        required: false
+        id: false
+        type:
+          - nested_array_property:
+              required: false
+              id: false
+              type:
+                - string
+    plural: model1
+    description: ' '
+    operations:
+      create: '#/integration/assemblies/assembly-1'
+      retrieve: '#/integration/assemblies/assembly-2'
+      retrieveall: '#/integration/assemblies/assembly-3'
+      upsertwithwhere: '#/integration/assemblies/assembly-9'
+      replaceorcreate: '#/integration/assemblies/assembly-11'
+      customput1: '#/integration/assemblies/assembly-20'
+      customput2: '#/integration/assemblies/assembly-21'
+      customput3: '#/integration/assemblies/assembly-22'
+      customput4: '#/integration/assemblies/assembly-23'
+      customhead1: '#/integration/assemblies/assembly-32'
+      customhead2: '#/integration/assemblies/assembly-33'
+      customhead3: '#/integration/assemblies/assembly-34'
+      customhead4: '#/integration/assemblies/assembly-35'
+    interactions:
+      retrieveall:
+        pagination-type: none
+        filterSupport:
+          queryablefields: []
+        isVisible: true
+      upsertwithwhere:
+        filterSupport:
+          queryablefields: []
+        isVisible: true
+    methods:
+      customput1:
+        name: customput1
+        display:
+          name: Custom PUT with 2 query parameters and id
+        accessType: WRITE
+        accepts:
+          - arg: string_property
+            type: string
+            http:
+              source: path
+            required: true
+          - arg: data
+            type: model1
+            http:
+              source: body
+          - arg: q1
+            type: string
+            http:
+              source: query
+          - arg: q2
+            type: string
+            http:
+              source: query
+        returns:
+          arg: data
+          type: model1
+          root: true
+        http:
+          verb: PUT
+          path: '/:string_property/customput1'
+        description: Custom PUT with 2 query parameters and id
+      customput2:
+        name: customput2
+        display:
+          name: Custom PUT with no query parameters and id
+        accessType: WRITE
+        accepts:
+          - arg: string_property
+            type: string
+            http:
+              source: path
+            required: true
+          - arg: data
+            type: model1
+            http:
+              source: body
+        returns:
+          arg: data
+          type: model1
+          root: true
+        http:
+          verb: PUT
+          path: '/:string_property/customput2'
+        description: Custom PUT with no query parameters and id
+      customput3:
+        name: customput3
+        display:
+          name: Custom PUT with query parameter and no id
+        accessType: WRITE
+        accepts:
+          - arg: data
+            type: model1
+            http:
+              source: body
+          - arg: q1
+            type: string
+            http:
+              source: query
+        returns:
+          arg: data
+          type: model1
+          root: true
+        http:
+          verb: PUT
+          path: /customput3
+        description: Custom PUT with query parameter and no id
+      customput4:
+        name: customput4
+        display:
+          name: Custom PUT with no query parameter and no id
+        accessType: WRITE
+        accepts:
+          - arg: data
+            type: model1
+            http:
+              source: body
+        returns:
+          arg: data
+          type: model1
+          root: true
+        http:
+          verb: PUT
+          path: /customput4
+        description: Custom PUT with no query parameter and no id
+      customhead1:
+        name: customhead1
+        display:
+          name: Custom HEAD with query and id
+        accessType: WRITE
+        accepts:
+          - arg: string_property
+            type: string
+            http:
+              source: path
+            required: true
+          - arg: q1
+            type: string
+            http:
+              source: query
+        http:
+          verb: HEAD
+          path: '/:string_property/customhead1'
+        description: Custom HEAD with query and id
+      customhead2:
+        name: customhead2
+        display:
+          name: Custom HEAD with no query and id
+        accessType: WRITE
+        accepts:
+          - arg: string_property
+            type: string
+            http:
+              source: path
+            required: true
+        http:
+          verb: HEAD
+          path: '/:string_property/customhead2'
+        description: Custom HEAD with no query and id
+      customhead3:
+        name: customhead3
+        display:
+          name: Custom HEAD with query and no id
+        accessType: WRITE
+        accepts:
+          - arg: q1
+            type: string
+            http:
+              source: query
+        http:
+          verb: HEAD
+          path: /customhead3
+        description: Custom HEAD with query and no id
+      customhead4:
+        name: customhead4
+        display:
+          name: Custom HEAD with no query and no id
+        accessType: WRITE
+        accepts: []
+        http:
+          verb: HEAD
+          path: /customhead4
+        description: Custom HEAD with no query and no id
+  model2:
+    name: model2
+    properties:
+      string_property:
+        required: false
+        id: false
+        type: string
+      number_property:
+        required: false
+        id: true
+        type: number
+      date_property:
+        required: false
+        id: false
+        type: date
+      boolean_property:
+        required: false
+        id: false
+        type: boolean
+    plural: model2
+    description: ' '
+    operations:
+      retrieve: '#/integration/assemblies/assembly-4'
+      retrieveall: '#/integration/assemblies/assembly-5'
+      upsertwithwhere: '#/integration/assemblies/assembly-6'
+      replaceorcreate: '#/integration/assemblies/assembly-7'
+      custompost1: '#/integration/assemblies/assembly-16'
+      custompost2: '#/integration/assemblies/assembly-17'
+      custompost3: '#/integration/assemblies/assembly-18'
+      custompost4: '#/integration/assemblies/assembly-19'
+      custompatch1: '#/integration/assemblies/assembly-28'
+      custompatch2: '#/integration/assemblies/assembly-29'
+      custompatch3: '#/integration/assemblies/assembly-30'
+      custompatch4: '#/integration/assemblies/assembly-31'
+    interactions:
+      retrieveall:
+        pagination-type: SKIP_LIMIT
+        filterSupport:
+          queryablefields:
+            - string_property
+            - date_property
+            - boolean_property
+        isVisible: true
+      upsertwithwhere:
+        filterSupport:
+          queryablefields:
+            - string_property
+            - date_property
+            - boolean_property
+        isVisible: true
+    methods:
+      custompost1:
+        name: custompost1
+        display:
+          name: Custom POST with 2 query parameters and id
+        accessType: WRITE
+        accepts:
+          - arg: number_property
+            type: string
+            http:
+              source: path
+            required: true
+          - arg: data
+            type: model2
+            http:
+              source: body
+          - arg: q1
+            type: string
+            http:
+              source: query
+          - arg: q2
+            type: string
+            http:
+              source: query
+        returns:
+          arg: data
+          type: model2
+          root: true
+        http:
+          verb: POST
+          path: '/:number_property/custompost1'
+        description: Custom POST with 2 query parameters and id
+      custompost2:
+        name: custompost2
+        display:
+          name: Custom POST with no query parameters and id
+        accessType: WRITE
+        accepts:
+          - arg: number_property
+            type: string
+            http:
+              source: path
+            required: true
+          - arg: data
+            type: model2
+            http:
+              source: body
+        returns:
+          arg: data
+          type: model2
+          root: true
+        http:
+          verb: POST
+          path: '/:number_property/custompost2'
+        description: Custom POST with no query parameters and id
+      custompost3:
+        name: custompost3
+        display:
+          name: Custom POST with query parameter and no id
+        accessType: WRITE
+        accepts:
+          - arg: data
+            type: model2
+            http:
+              source: body
+          - arg: q1
+            type: string
+            http:
+              source: query
+        returns:
+          arg: data
+          type: model2
+          root: true
+        http:
+          verb: POST
+          path: /custompost3
+        description: Custom POST with query parameter and no id
+      custompost4:
+        name: custompost4
+        display:
+          name: Custom POST with no query parameter and no id
+        accessType: WRITE
+        accepts:
+          - arg: data
+            type: model2
+            http:
+              source: body
+        returns:
+          arg: data
+          type: model2
+          root: true
+        http:
+          verb: POST
+          path: /custompost4
+        description: Custom POST with no query parameter and no id
+      custompatch1:
+        name: custompatch1
+        display:
+          name: Custom PATCH with query and id
+        accessType: WRITE
+        accepts:
+          - arg: number_property
+            type: string
+            http:
+              source: path
+            required: true
+          - arg: data
+            type: model2
+            http:
+              source: body
+          - arg: q1
+            type: string
+            http:
+              source: query
+        returns:
+          arg: data
+          type: model2
+          root: true
+        http:
+          verb: PATCH
+          path: '/:number_property/custompatch1'
+        description: Custom PATCH with query and id
+      custompatch2:
+        name: custompatch2
+        display:
+          name: Custom PATCH with no query and id
+        accessType: WRITE
+        accepts:
+          - arg: number_property
+            type: string
+            http:
+              source: path
+            required: true
+          - arg: data
+            type: model2
+            http:
+              source: body
+        returns:
+          arg: data
+          type: model2
+          root: true
+        http:
+          verb: PATCH
+          path: '/:number_property/custompatch2'
+        description: Custom PATCH with no query and id
+      custompatch3:
+        name: custompatch3
+        display:
+          name: Custom PATCH with query and no id
+        accessType: WRITE
+        accepts:
+          - arg: data
+            type: model2
+            http:
+              source: body
+          - arg: q1
+            type: string
+            http:
+              source: query
+        returns:
+          arg: data
+          type: model2
+          root: true
+        http:
+          verb: PATCH
+          path: /custompatch3
+        description: Custom PATCH with query and no id
+      custompatch4:
+        name: custompatch4
+        display:
+          name: Custom PATCH with no query and no id
+        accessType: WRITE
+        accepts:
+          - arg: data
+            type: model2
+            http:
+              source: body
+        returns:
+          arg: data
+          type: model2
+          root: true
+        http:
+          verb: PATCH
+          path: /custompatch4
+        description: Custom PATCH with no query and no id
+  model3:
+    name: model3
+    properties:
+      string_property:
+        required: false
+        id: true
+        type: string
+      number_property:
+        required: false
+        id: false
+        type: number
+      date_property:
+        required: false
+        id: false
+        type: date
+      boolean_property:
+        required: false
+        id: false
+        type: boolean
+    plural: model3
+    description: ' '
+    operations:
+      retrieveall: '#/integration/assemblies/assembly-8'
+      upsertwithwhere: '#/integration/assemblies/assembly-10'
+      customget1: '#/integration/assemblies/assembly-12'
+      customget2: '#/integration/assemblies/assembly-13'
+      customget3: '#/integration/assemblies/assembly-14'
+      customget4: '#/integration/assemblies/assembly-15'
+      customdelete1: '#/integration/assemblies/assembly-24'
+      customdelete2: '#/integration/assemblies/assembly-25'
+      customdelete3: '#/integration/assemblies/assembly-26'
+      customdelete4: '#/integration/assemblies/assembly-27'
+    interactions:
+      retrieveall:
+        pagination-type: TOKEN_LIMIT
+        filterSupport:
+          queryablefields:
+            - number_property
+            - date_property
+            - boolean_property
+        isVisible: true
+      upsertwithwhere:
+        filterSupport:
+          queryablefields:
+            - number_property
+            - date_property
+            - boolean_property
+    methods:
+      customget1:
+        name: customget1
+        display:
+          name: Custom GET with query and id
+        accessType: WRITE
+        accepts:
+          - arg: string_property
+            type: string
+            http:
+              source: path
+            required: true
+          - arg: q1
+            type: string
+            http:
+              source: query
+        returns:
+          arg: data
+          type: model1
+          root: true
+        http:
+          verb: GET
+          path: '/:string_property/customget1'
+        description: Custom GET with query and id
+      customget2:
+        name: customget2
+        display:
+          name: Custom GET with no query and id
+        accessType: WRITE
+        accepts:
+          - arg: string_property
+            type: string
+            http:
+              source: path
+            required: true
+        returns:
+          arg: data
+          type: model1
+          root: true
+        http:
+          verb: GET
+          path: '/:string_property/customget2'
+        description: Custom GET with no query and id
+      customget3:
+        name: customget3
+        display:
+          name: Custom GET with no query and no id
+        accessType: WRITE
+        accepts: []
+        returns:
+          arg: data
+          type: model1
+          root: true
+        http:
+          verb: GET
+          path: /customget3
+        description: Custom GET with no query and no id
+      customget4:
+        name: customget4
+        display:
+          name: Custom GET with query and no id
+        accessType: WRITE
+        accepts:
+          - arg: q1
+            type: string
+            http:
+              source: query
+        returns:
+          arg: data
+          type: model1
+          root: true
+        http:
+          verb: GET
+          path: /customget4
+        description: Custom GET with query and no id
+      customdelete1:
+        name: customdelete1
+        display:
+          name: Custom DELETE with query and id
+        accessType: WRITE
+        accepts:
+          - arg: string_property
+            type: string
+            http:
+              source: path
+            required: true
+          - arg: q1
+            type: string
+            http:
+              source: query
+        returns:
+          arg: data
+          type: model3
+          root: true
+        http:
+          verb: DELETE
+          path: '/:string_property/customdelete1'
+        description: Custom DELETE with query and id
+      customdelete2:
+        name: customdelete2
+        display:
+          name: Custom DELETE with no query and id
+        accessType: WRITE
+        accepts:
+          - arg: string_property
+            type: string
+            http:
+              source: path
+            required: true
+        returns:
+          arg: data
+          type: model3
+          root: true
+        http:
+          verb: DELETE
+          path: '/:string_property/customdelete2'
+        description: Custom DELETE with no query and id
+      customdelete3:
+        name: customdelete3
+        display:
+          name: Custom DELETE with query and no id
+        accessType: WRITE
+        accepts:
+          - arg: q1
+            type: string
+            http:
+              source: query
+        returns:
+          arg: data
+          type: model3
+          root: true
+        http:
+          verb: DELETE
+          path: /customdelete3
+        description: Custom DELETE with query and no id
+      customdelete4:
+        name: customdelete4
+        display:
+          name: Custom DELETE with no query and no id
+        accessType: WRITE
+        accepts: []
+        returns:
+          arg: data
+          type: model3
+          root: true
+        http:
+          verb: DELETE
+          path: /customdelete4
+        description: Custom DELETE with no query and no id
