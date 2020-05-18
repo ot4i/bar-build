@@ -1,6 +1,6 @@
 {
   "name": "@ibm-app-connect/bar-build",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generates BAR file from designer flow for use in ACE software.",
   "license": "MIT",
   "scripts": {
