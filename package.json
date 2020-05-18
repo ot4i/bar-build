@@ -24,8 +24,8 @@
       "templates/**"
     ]
   },
-  "bin":{
-    "bar-build":"bin/bar-build.js"
+  "bin": {
+    "bar-build": "bin/bar-build.js"
   },
   "dependencies": {
     "archiver": "^4.0.1",
@@ -58,5 +58,17 @@
     "globals": [],
     "env": "mocha"
   },
-  "readmeFilename": "README.md"
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ot4i/bar-build.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ot4i/bar-build/issues"
+  },
+  "homepage": "https://github.com/ot4i/bar-build#readme"
 }
